@@ -125,9 +125,35 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAL\PsychologyContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905020841425_CreateDB.cs" />
+    <Compile Include="Migrations\201905020841425_CreateDB.Designer.cs">
+      <DependentUpon>201905020841425_CreateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905020844592_AddIsActive.cs" />
+    <Compile Include="Migrations\201905020844592_AddIsActive.Designer.cs">
+      <DependentUpon>201905020844592_AddIsActive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\About.cs" />
+    <Compile Include="Models\Blog.cs" />
+    <Compile Include="Models\BlogCategory.cs" />
+    <Compile Include="Models\ChooseUs.cs" />
+    <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Faq.cs" />
+    <Compile Include="Models\Galery.cs" />
+    <Compile Include="Models\GaleryCategory.cs" />
+    <Compile Include="Models\Like.cs" />
+    <Compile Include="Models\OpeningHour.cs" />
+    <Compile Include="Models\Phrase.cs" />
+    <Compile Include="Models\Service.cs" />
+    <Compile Include="Models\Setting.cs" />
+    <Compile Include="Models\Specialist.cs" />
+    <Compile Include="Models\SpecItem.cs" />
+    <Compile Include="Models\Timeline.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -171,18 +197,24 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201905020841425_CreateDB.resx">
+      <DependentUpon>201905020841425_CreateDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905020844592_AddIsActive.resx">
+      <DependentUpon>201905020844592_AddIsActive.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
