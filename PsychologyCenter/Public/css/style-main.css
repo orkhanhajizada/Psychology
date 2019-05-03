@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /*------------------------------------------------------------------
 [Master Stylesheet]
 
@@ -4932,17 +4932,18 @@ blockquote p {
   color: #666666;
 }
 .social-icons.icon-gray a {
-  background-color: #eeeeee;
-  color: #555555;
-  display: block;
-  font-size: 18px;
-  height: 36px;
-  line-height: 36px;
-  width: 36px;
+    background-color: #8d5173;
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    height: 36px;
+    line-height: 36px;
+    width: 36px;
 }
-.social-icons.icon-gray a:hover {
-  color: #bbbbbb;
-}
+    .social-icons.icon-gray a:hover {
+        
+        background-color: #fff;
+    }
 .social-icons.icon-gray.icon-bordered a {
   background-color: transparent;
   border: 2px solid #eeeeee;
@@ -6656,21 +6657,21 @@ blockquote p {
 .panel-group .panel-title a.active .open-sub:after {
   display: none;
 }
-.panel-group .panel-title a.active::after {
-  color: #fff;
-  background: #e3e3e3 !important;
-  content: "\f068";
-}
-.panel-group .panel-title a::after {
-  color: #777777;
-  content: "\f067";
-  font-family: fontawesome;
-  font-size: 14px;
-  left: 0;
-  padding: 10px 14px;
-  position: absolute;
-  top: 0;
-}
+    .panel-group .panel-title a.active::after {
+        color: #fff;
+        background: #8d5173 !important;
+        content: "\f068";
+    }
+    .panel-group .panel-title a::after {
+        color: #8d5173;
+        content: "\f067";
+        font-family: fontawesome;
+        font-size: 14px;
+        left: 0;
+        padding: 10px 14px;
+        position: absolute;
+        top: 0;
+    }
 .panel-group .panel-title:hover a,
 .panel-group .panel-title:focus a {
   color: #333333;
@@ -7263,9 +7264,10 @@ blockquote p {
 .widget.dark .search-input {
   border: 1px solid #333333;
 }
-.widget.dark .social-icons li a:hover i {
-  color: #fff;
-}
+    .widget.dark .social-icons li a:hover i {
+        color: #8d5173;
+        ;
+    }
 .widget.dark .search-button {
   border: 1px solid #333333;
 }
