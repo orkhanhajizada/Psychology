@@ -1210,7 +1210,11 @@ img.tp-slider-alternative-image	{
 .tp-bullet.selected,
 .tp-bullet:hover				{	background:#fff;}
 
-.tp-bannertimer					{	background:#000; background:rgba(0,0,0,0.15); height:5px;}
+.tp-bannertimer {
+    background: #000;
+    background: #8d5173;
+    height: 5px;
+}
 
 
 .tparrows						{	cursor:pointer; background:#000; background:rgba(0,0,0,0.5); width:40px;height:40px;position:absolute; display:block; z-index:1000; }

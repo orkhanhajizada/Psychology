@@ -49,7 +49,7 @@ COLOR CODE: #00a3c8
 .post .entry-meta.meta-absolute,
 .volunteer .overlay,
 .bg-theme-colored-transparent-deep {
-  background-color: rgba(0, 163, 200, 0.9) !important;
+    background-color: rgba(141, 81, 115, 0.67) !important;
 }
 /* Custom overlay */
 .testimonial.style1 .comment {
@@ -630,8 +630,8 @@ fieldset[disabled] .btn-theme-colored.focus {
   color: #fff;
 }
 .icon-theme-colored.icon-dark a {
-  background-color: #00a3c8;
-  color: #fff;
+    background-color: #8d5173;
+    color: #fff;
 }
 .icon-theme-colored.icon-dark a:hover {
   background-color: #8D5173;

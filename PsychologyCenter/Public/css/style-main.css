@@ -275,9 +275,10 @@ form {
 .breadcrumb.white li.active {
   color: #fff;
 }
-.breadcrumb.white li a {
-  color: #808080;
-}
+    .breadcrumb.white li a {
+        color: #8D5173;
+        font-size: 25px;
+    }
 @media only screen and (min-width: 768px) {
   .breadcrumb.text-right {
     text-align: right !important;
@@ -4488,41 +4489,41 @@ fieldset[disabled] .btn-border.focus {
 }
 /* -------- Btn-Dark ---------- */
 .btn-dark {
-  color: #fff;
-  background-color: #222222;
-  border-color: #222222;
+    color: #fff;
+    background-color: #8D5173;
+    border-color: #8D5173;
 }
-.btn-dark:focus,
-.btn-dark.focus {
-  color: #fff;
-  background-color: #090909;
-  border-color: #000000;
-}
-.btn-dark:hover {
-  color: #fff;
-  background-color: #090909;
-  border-color: #040404;
-}
-.btn-dark:active,
-.btn-dark.active,
-.open > .dropdown-toggle.btn-dark {
-  color: #fff;
-  background-color: #090909;
-  border-color: #040404;
-}
-.btn-dark:active:hover,
-.btn-dark.active:hover,
-.open > .dropdown-toggle.btn-dark:hover,
-.btn-dark:active:focus,
-.btn-dark.active:focus,
-.open > .dropdown-toggle.btn-dark:focus,
-.btn-dark:active.focus,
-.btn-dark.active.focus,
-.open > .dropdown-toggle.btn-dark.focus {
-  color: #fff;
-  background-color: #000000;
-  border-color: #000000;
-}
+    .btn-dark:focus,
+    .btn-dark.focus {
+        color: #fff;
+        background-color: #d479ac;
+        border-color: #d479ac;
+    }
+    .btn-dark:hover {
+        color: #fff;
+        background-color: #d479ac;
+        border-color: #d479ac;
+    }
+    .btn-dark:active,
+    .btn-dark.active,
+    .open > .dropdown-toggle.btn-dark {
+        color: #fff;
+        background-color: #d479ac;
+        border-color: #d479ac;
+    }
+        .btn-dark:active:hover,
+        .btn-dark.active:hover,
+        .open > .dropdown-toggle.btn-dark:hover,
+        .btn-dark:active:focus,
+        .btn-dark.active:focus,
+        .open > .dropdown-toggle.btn-dark:focus,
+        .btn-dark:active.focus,
+        .btn-dark.active.focus,
+        .open > .dropdown-toggle.btn-dark.focus {
+            color: #fff;
+            background-color: #d479ac;
+            border-color: #d479ac;
+        }
 .btn-dark:active,
 .btn-dark.active,
 .open > .dropdown-toggle.btn-dark {
