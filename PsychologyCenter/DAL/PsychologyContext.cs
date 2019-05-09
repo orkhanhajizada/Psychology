@@ -31,6 +31,7 @@ namespace PsychologyCenter.DAL
         public DbSet<SpecItem> SpecItems { get; set; }
         public DbSet<Timeline> Timeliness { get; set; }
         public DbSet<Like> Likes { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
         #endregion
 
 

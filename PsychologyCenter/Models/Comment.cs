@@ -15,9 +15,9 @@ namespace PsychologyCenter.Models
 
         public DateTime Date { get; set; }
 
-        public bool IsActive { get; set; }
-
         public string Content { get; set; }
+
+        public bool IsActive { get; set; }
 
         public Blog Blog { get; set; }
     }

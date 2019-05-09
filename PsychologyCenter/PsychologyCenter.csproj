@@ -124,6 +124,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\PsychologyContext.cs" />
@@ -137,6 +138,34 @@
     <Compile Include="Migrations\201905020844592_AddIsActive.cs" />
     <Compile Include="Migrations\201905020844592_AddIsActive.Designer.cs">
       <DependentUpon>201905020844592_AddIsActive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905081937488_SomeRequired.cs" />
+    <Compile Include="Migrations\201905081937488_SomeRequired.Designer.cs">
+      <DependentUpon>201905081937488_SomeRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905091717044_AddIcon.cs" />
+    <Compile Include="Migrations\201905091717044_AddIcon.Designer.cs">
+      <DependentUpon>201905091717044_AddIcon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905091802365_AddSlider.cs" />
+    <Compile Include="Migrations\201905091802365_AddSlider.Designer.cs">
+      <DependentUpon>201905091802365_AddSlider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905091805598_AddSliderOrderBy.cs" />
+    <Compile Include="Migrations\201905091805598_AddSliderOrderBy.Designer.cs">
+      <DependentUpon>201905091805598_AddSliderOrderBy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905091809342_AddSliderOrder.cs" />
+    <Compile Include="Migrations\201905091809342_AddSliderOrder.Designer.cs">
+      <DependentUpon>201905091809342_AddSliderOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905091816480_AddSlider1.cs" />
+    <Compile Include="Migrations\201905091816480_AddSlider1.Designer.cs">
+      <DependentUpon>201905091816480_AddSlider1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905091836137_AddOrderTimeline.cs" />
+    <Compile Include="Migrations\201905091836137_AddOrderTimeline.Designer.cs">
+      <DependentUpon>201905091836137_AddOrderTimeline.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
@@ -152,10 +181,12 @@
     <Compile Include="Models\Phrase.cs" />
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\Setting.cs" />
+    <Compile Include="Models\Slider.cs" />
     <Compile Include="Models\Specialist.cs" />
     <Compile Include="Models\SpecItem.cs" />
     <Compile Include="Models\Timeline.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VwModels\VwHome.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -294,6 +325,14 @@
     <Content Include="Public\fonts\medical-icons.svg" />
     <Content Include="Public\fonts\Pe-icon-7-stroke.svg" />
     <Content Include="Public\fonts\Stroke-Gap-Icons.svg" />
+    <Content Include="Public\images\blog1.Jpeg" />
+    <Content Include="Public\images\blog2.jpg" />
+    <Content Include="Public\images\doctor.png" />
+    <Content Include="Public\images\p1.jpg" />
+    <Content Include="Public\images\p2.jpg" />
+    <Content Include="Public\images\p3.jpg" />
+    <Content Include="Public\images\spec1.jpg" />
+    <Content Include="Public\images\spec2.jpg" />
     <Content Include="Public\images\Timeline\arrow-left.svg" />
     <Content Include="Public\images\Timeline\arrow-right.svg" />
     <Content Include="Public\js\revolution-slider\fonts\font-awesome\.DS_Store" />
@@ -854,6 +893,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905020844592_AddIsActive.resx">
       <DependentUpon>201905020844592_AddIsActive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905081937488_SomeRequired.resx">
+      <DependentUpon>201905081937488_SomeRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905091717044_AddIcon.resx">
+      <DependentUpon>201905091717044_AddIcon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905091802365_AddSlider.resx">
+      <DependentUpon>201905091802365_AddSlider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905091805598_AddSliderOrderBy.resx">
+      <DependentUpon>201905091805598_AddSliderOrderBy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905091809342_AddSliderOrder.resx">
+      <DependentUpon>201905091809342_AddSliderOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905091816480_AddSlider1.resx">
+      <DependentUpon>201905091816480_AddSlider1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905091836137_AddOrderTimeline.resx">
+      <DependentUpon>201905091836137_AddOrderTimeline.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

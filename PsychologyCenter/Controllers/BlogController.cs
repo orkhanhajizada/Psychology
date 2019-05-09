@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace PsychologyCenter.Controllers
 {
-    public class BlogController : Controller
+    public class BlogController : BaseController
     {
         
         public ActionResult Index()

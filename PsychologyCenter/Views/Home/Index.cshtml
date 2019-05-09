@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@model VwHome
+
+@{
+    Setting setting = ViewBag.Setting as Setting;
+}
+
+
+
+
+<!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
 
@@ -620,10 +629,9 @@
                         </div>
                         <div class="col-md-4">
                             <h3 class="text-gray-silver font-playfair mt-10 mt-sm-30 mb-0">About</h3>
-                            <h1 class="text-gray font-playfair mt-0">Medinova Hospital</h1>
-                            <p><em>One of the world's leading hospitals providing safe & compassionate care at its best for everyone.</em></p>
+                            <h1 class="text-gray font-playfair mt-0">Günel Qurbanova </h1>
                             <p class="mt-20">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque commodi molestiae autem fugit consectetur dolor ullam illo ipsa numquam, quod iusto enim ipsum amet iusto amet consec.</p>
-                            <p class="mt-20"><img src="~/Public/images/signature.png" alt=""></p>
+                            @*<p class="mt-20"><img src="~/Public/images/signature.png" alt=""></p>*@
                         </div>
                         <div class="col-md-4">
                             <img src="http://placehold.it/340x464" alt="" class="mb-40">

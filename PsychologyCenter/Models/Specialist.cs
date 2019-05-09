@@ -23,6 +23,10 @@ namespace PsychologyCenter.Models
         [StringLength(250)]
         public string Photo { get; set; }
 
+        [Required]
+        [StringLength(250)]
+        public string Icon { get; set; }
+
         List<SpecItem> SpecItems { get; set; }
     }
 }
