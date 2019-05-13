@@ -28,7 +28,6 @@ namespace PsychologyCenter.DAL
         public DbSet<Service> Services { get; set; }
         public DbSet<Setting> Settings { get; set; }
         public DbSet<Specialist> Specialists { get; set; }
-        public DbSet<SpecItem> SpecItems { get; set; }
         public DbSet<Timeline> Timeliness { get; set; }
         public DbSet<Like> Likes { get; set; }
         public DbSet<Slider> Sliders { get; set; }

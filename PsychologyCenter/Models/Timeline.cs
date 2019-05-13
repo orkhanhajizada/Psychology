@@ -14,7 +14,7 @@ namespace PsychologyCenter.Models
         public string Date { get; set; }
 
         [Required]
-        [StringLength(200)]
+        [StringLength(700)]
         public string Text { get; set; }
 
         [Required]

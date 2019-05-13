@@ -167,6 +167,26 @@
     <Compile Include="Migrations\201905091836137_AddOrderTimeline.Designer.cs">
       <DependentUpon>201905091836137_AddOrderTimeline.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905121817371_TimelineText.cs" />
+    <Compile Include="Migrations\201905121817371_TimelineText.Designer.cs">
+      <DependentUpon>201905121817371_TimelineText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905131508373_SpecialistIsActive.cs" />
+    <Compile Include="Migrations\201905131508373_SpecialistIsActive.Designer.cs">
+      <DependentUpon>201905131508373_SpecialistIsActive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905131947372_RelationSpecialistSpecItem.cs" />
+    <Compile Include="Migrations\201905131947372_RelationSpecialistSpecItem.Designer.cs">
+      <DependentUpon>201905131947372_RelationSpecialistSpecItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905131951140_RelationSpecialistSpecItem1.cs" />
+    <Compile Include="Migrations\201905131951140_RelationSpecialistSpecItem1.Designer.cs">
+      <DependentUpon>201905131951140_RelationSpecialistSpecItem1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905132014113_DeleteSpecItem.cs" />
+    <Compile Include="Migrations\201905132014113_DeleteSpecItem.Designer.cs">
+      <DependentUpon>201905132014113_DeleteSpecItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
     <Compile Include="Models\Blog.cs" />
@@ -183,10 +203,9 @@
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\Slider.cs" />
     <Compile Include="Models\Specialist.cs" />
-    <Compile Include="Models\SpecItem.cs" />
     <Compile Include="Models\Timeline.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VwModels\VwHome.cs" />
+    <Compile Include="ViewModels\VwHome.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -331,6 +350,7 @@
     <Content Include="Public\images\p1.jpg" />
     <Content Include="Public\images\p2.jpg" />
     <Content Include="Public\images\p3.jpg" />
+    <Content Include="Public\images\Preloader_3.gif" />
     <Content Include="Public\images\spec1.jpg" />
     <Content Include="Public\images\spec2.jpg" />
     <Content Include="Public\images\Timeline\arrow-left.svg" />
@@ -378,7 +398,6 @@
     <Content Include="Public\fonts\Stroke-Gap-Icons.eot" />
     <Content Include="Public\fonts\Stroke-Gap-Icons.ttf" />
     <Content Include="Public\fonts\Stroke-Gap-Icons.woff" />
-    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Public\images\1.gif" />
     <Content Include="Public\images\apple-touch-icon-114x114.png" />
     <Content Include="Public\images\apple-touch-icon-144x144.png" />
@@ -849,22 +868,20 @@
     <Content Include="Public\js\revolution-slider\js\jquery.themepunch.enablelog.js" />
     <Content Include="Public\js\revolution-slider\js\jquery.themepunch.revolution.min.js" />
     <Content Include="Public\js\revolution-slider\js\jquery.themepunch.tools.min.js" />
+    <Content Include="Public\js\script.js" />
     <Content Include="Public\js\revolution-slider\js\source\jquery.themepunch.enablelog.js" />
     <Content Include="Public\js\revolution-slider\js\source\jquery.themepunch.revolution.js" />
     <Content Include="Public\js\revolution-slider\js\source\jquery.themepunch.tools.min.js" />
     <Content Include="Public\js\timeline.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
-    <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Uploads\blog11.jpg" />
+    <Content Include="Uploads\blog12.jpg" />
+    <Content Include="Uploads\doctor.png" />
+    <Content Include="Uploads\services1.jpg" />
+    <Content Include="Uploads\sl1.jpg" />
+    <Content Include="Uploads\sl2.jpg" />
+    <Content Include="Uploads\sl3.jpg" />
+    <Content Include="Uploads\spec1.jpg" />
+    <Content Include="Uploads\spec2.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -884,8 +901,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201905020841425_CreateDB.resx">
@@ -914,6 +929,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905091836137_AddOrderTimeline.resx">
       <DependentUpon>201905091836137_AddOrderTimeline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905121817371_TimelineText.resx">
+      <DependentUpon>201905121817371_TimelineText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905131508373_SpecialistIsActive.resx">
+      <DependentUpon>201905131508373_SpecialistIsActive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905131947372_RelationSpecialistSpecItem.resx">
+      <DependentUpon>201905131947372_RelationSpecialistSpecItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905131951140_RelationSpecialistSpecItem1.resx">
+      <DependentUpon>201905131951140_RelationSpecialistSpecItem1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905132014113_DeleteSpecItem.resx">
+      <DependentUpon>201905132014113_DeleteSpecItem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

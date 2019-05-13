@@ -23,10 +23,28 @@ namespace PsychologyCenter.Models
         [StringLength(250)]
         public string Photo { get; set; }
 
+        [StringLength(250)]
+        public string SpecItem1 { get; set; }
+
+        [StringLength(250)]
+        public string SpecItem2 { get; set; }
+
+        [StringLength(250)]
+        public string SpecItem3 { get; set; }
+
+        [StringLength(250)]
+        public string SpecItem4 { get; set; }
+
+        [StringLength(250)]
+        public string SpecItem5 { get; set; }
+
+        [StringLength(250)]
+        public string SpecItem6 { get; set; }
+
         [Required]
         [StringLength(250)]
         public string Icon { get; set; }
-
-        List<SpecItem> SpecItems { get; set; }
+        
+        public string IsActive { get; set; }
     }
 }

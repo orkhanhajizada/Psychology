@@ -30,5 +30,8 @@ namespace PsychologyCenter.VwModels
 
         public List<Phrase> Phrases { get; set; }
 
+        public List<Comment> Comments { get; set; }
+
+        public List<Like> Likes { get; set; }
     }
 }
