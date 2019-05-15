@@ -347,9 +347,9 @@
     <Content Include="Public\images\blog1.Jpeg" />
     <Content Include="Public\images\blog2.jpg" />
     <Content Include="Public\images\doctor.png" />
-    <Content Include="Public\images\p1.jpg" />
-    <Content Include="Public\images\p2.jpg" />
-    <Content Include="Public\images\p3.jpg" />
+    <Content Include="Uploads\p1.jpg" />
+    <Content Include="Uploads\p2.jpg" />
+    <Content Include="Uploads\p3.jpg" />
     <Content Include="Public\images\Preloader_3.gif" />
     <Content Include="Public\images\spec1.jpg" />
     <Content Include="Public\images\spec2.jpg" />
@@ -873,8 +873,10 @@
     <Content Include="Public\js\revolution-slider\js\source\jquery.themepunch.revolution.js" />
     <Content Include="Public\js\revolution-slider\js\source\jquery.themepunch.tools.min.js" />
     <Content Include="Public\js\timeline.min.js" />
+    <Content Include="Uploads\blog1.Jpeg" />
     <Content Include="Uploads\blog11.jpg" />
     <Content Include="Uploads\blog12.jpg" />
+    <Content Include="Uploads\blog2.jpg" />
     <Content Include="Uploads\doctor.png" />
     <Content Include="Uploads\services1.jpg" />
     <Content Include="Uploads\sl1.jpg" />

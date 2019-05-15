@@ -34,7 +34,9 @@ namespace PsychologyCenter.Controllers
 
             model.Galeries = _context.Galeries.Include("GaleryCategory").OrderByDescending(g => g.Id).ToList();
 
-            model.Faqs = _context.Faqs.OrderByDescending(f => f.Id).ToList();
+            model.GaleryCategories = _context.GaleryCategories.ToList();
+
+            model.Faqs = _context.Faqs.OrderBy(f => f.Id).ToList();
 
             model.Comments = _context.Comments.Where(w => w.IsActive == true).ToList();
 
@@ -62,7 +64,7 @@ namespace PsychologyCenter.Controllers
             MailMessage.To.Add(new MailAddress("h.orkhan1907@gmail.com"));  // replace with valid value 
             MailMessage.From = new MailAddress(email);  // replace with valid value
             MailMessage.Subject = "Your email subject";
-            MailMessage.Body = string.Format(body, name, email, number,date.ToString("dd.MM.yyyy HH:mm"), message);
+            MailMessage.Body = string.Format(body, name, email, number, date.ToString("dd.MM.yyyy HH:mm"), message);
             MailMessage.IsBodyHtml = true;
 
             SmtpClient client = new SmtpClient
@@ -86,5 +88,43 @@ namespace PsychologyCenter.Controllers
         }
 
 
+        public JsonResult ContactMessage(string name, string email, string number, string subject, string message)
+        {
+
+
+
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(message) || string.IsNullOrEmpty(subject))
+            {
+                Response.StatusCode = 406;
+                return Json("Bütün məlumatlar doldurulmalıdır!", JsonRequestBehavior.AllowGet);
+            }
+
+            string body = "<ul><li>Ad soyad : {0}</li><li>E-poçt : {1}</li><li>Mobil nömrə : {2}</li><li>Başlıq :  {3}</li></ul><p>{4}</p>";
+            var MailMessage = new MailMessage();
+            MailMessage.To.Add(new MailAddress("h.orkhan1907@gmail.com"));  // replace with valid value 
+            MailMessage.From = new MailAddress(email);  // replace with valid value
+            MailMessage.Subject = "Your email subject";
+            MailMessage.Body = string.Format(body, name, email, number, subject, message);
+            MailMessage.IsBodyHtml = true;
+
+            SmtpClient client = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                UseDefaultCredentials = false,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Credentials = new NetworkCredential
+                {
+                    UserName = "h.orkhan1907@gmail.com",  // replace with valid value
+                    Password = "orxan12gfb"  // replace with valid value
+                }
+            };
+
+            client.Send(MailMessage);
+
+
+            return Json("Mesajınız e-poçt adresimizə göndərildi", JsonRequestBehavior.AllowGet);
+        }
     }
 }

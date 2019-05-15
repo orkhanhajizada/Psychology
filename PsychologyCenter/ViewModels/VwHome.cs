@@ -26,6 +26,8 @@ namespace PsychologyCenter.VwModels
 
         public List<Galery> Galeries { get; set; }
 
+        public List<GaleryCategory> GaleryCategories { get; set; }
+
         public List<Faq> Faqs { get; set; }
 
         public List<Phrase> Phrases { get; set; }
