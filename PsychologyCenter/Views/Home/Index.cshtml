@@ -124,7 +124,7 @@
                                 @foreach (var slider in Model.Sliders)
                                 {
                                     <!-- SLIDE 1 -->
-                                    <li data-index="rs-1" data-transition="random" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="1000" data-thumb="http://placehold.it/1920x1280" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off" data-title="Intro" data-description="">
+                                    <li data-index="rs-@slider.Id" data-transition="random" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="1000" data-thumb="http://placehold.it/1920x1280" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off" data-title="Intro" data-description="">
                                         <!-- MAIN IMAGE -->
                                         <img src="~/Uploads/@slider.Photo" alt="" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-bgparallax="6" data-no-retina>
                                         <!-- LAYERS -->
@@ -565,7 +565,7 @@
                                                 <h4 class="text-theme-colored  m-0">Görüş təyin edin!</h4>
                                                 <div class="line-bottom mb-30"></div>
                                                 <!-- Appointment Form -->
-                                                <form name="appointment_form_at_home" class="" action="@Url.Action("message")" method="POST" id="ajax-contact">
+                                                <form name="appointment_form_at_home" class=""  id="ajax-contact">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <div class="form-group mb-10">
@@ -593,34 +593,10 @@
                                                     </div>
                                                     <div class="form-group mb-0 mt-20">
                                                         <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
-                                                        <button type="submit" class="btn btn-dark btn-theme-colored" data-loading-text="Please wait...">Göndər</button>
-                                                    </div>
+                                                        <button type="submit" class="appointment btn btn-dark btn-theme-colored" data-loading-text="Zəhmət olmasa gözləyin...">Göndər</button>
+                                                        <button type="reset" class="btn btn-default btn-flat btn-theme-colored">Sıfırla</button>
+                                                    </div>  
                                                 </form>
-
-                                                <!-- Appointment Form Validation-->
-                                                @*<script type="text/javascript">
-                                                        $("#appointment_form_at_home").validate({
-                                                            submitHandler: function (form) {
-                                                                var form_btn = $(form).find('button[type="submit"]');
-                                                                var form_result_div = '#form-result';
-                                                                $(form_result_div).remove();
-                                                                form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
-                                                                var form_btn_old_msg = form_btn.html();
-                                                                form_btn.html(form_btn.prop('disabled', true).data("loading-text"));
-                                                                $(form).ajaxSubmit({
-                                                                    dataType: 'json',
-                                                                    success: function (data) {
-                                                                        if (data.status == 'true') {
-                                                                            $(form).find('.form-control').val('');
-                                                                        }
-                                                                        form_btn.prop('disabled', false).html(form_btn_old_msg);
-                                                                        $(form_result_div).html(data.message).fadeIn('slow');
-                                                                        setTimeout(function () { $(form_result_div).fadeOut('slow') }, 6000);
-                                                                    }
-                                                                });
-                                                            }
-                                                        });
-                                                    </script>*@
                                             </div>
                                         </div>
                                     </div>
@@ -842,11 +818,33 @@
                                                     <p>@news.MinAbout</p>
                                                     <div class="entry-meta pull-left flip mt-10">
                                                         <ul class="list-inline">
-                                                            <li><i class="fa fa-thumbs-o-up mr-5"></i>@news.Likes.Count()</li>
-                                                            <li><i class="fa fa-comments-o mr-5"></i> @Model.Comments.Where(w => w.BlogId == news.Id).Count()</li>
+                                                            <li>
+                                                                <i class="fa fa-thumbs-o-up mr-5"></i>
+                                                                @if (@news.Likes != null)
+                                                                {
+                                                                    @news.Likes.Count()
+                                                                }
+                                                                else
+                                                                {
+                                                                    @:0
+                                                                }
+
+                                                            </li>
+                                                            <li>
+                                                                <i class="fa fa-comments-o mr-5"></i>
+                                                                @if (@Model.Comments.Where(w => w.BlogId == news.Id) != null)
+                                                                {
+                                                                    @Model.Comments.Where(w => w.BlogId == news.Id).Count()
+                                                                }
+                                                                else
+                                                                {
+                                                                    @:0
+                                                                }
+
+                                                            </li>
                                                         </ul>
                                                     </div>
-                                                    <a class="text-theme-colored mt-10 mb-0 pull-right flip" href="#">Read more <i class="fa fa-angle-double-right"></i></a>
+                                                    <a class="text-theme-colored mt-10 mb-0 pull-right flip" href="@Url.Action("read","blog", new {Slug= news.Slug})"> Ətraflı <i class="fa fa-angle-double-right"></i></a>
                                                     <div class="clearfix"></div>
                                                 </div>
                                             </div>
@@ -858,7 +856,7 @@
                     </div>
                     <div class="row text-center">
                         <div class="col-md-12  ">
-                            <a class="btn btn-lg btn-dark btn-theme-colored" href="@Url.Action("index","blog")">Read More</a>
+                            <a class="btn btn-lg btn-dark btn-theme-colored" href="@Url.Action("index","blog")">Daha çox</a>
                         </div>
                     </div>
                 </div>
@@ -985,19 +983,19 @@
                             <h3 class="line-bottom mt-0 mb-30">Əlaqə</h3>
 
                             <!-- Contact Form -->
-                            <form id="ajax-contact" name="ajax-contact" class="" action="@Url.Action("contactmessage")" method="POST" >
+                            <form id="ajax-contact" name="ajax-contact" class="" >
 
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Ad və soyad <small>*</small></label>
-                                            <input name="form_name" class="form-control" type="text" placeholder="Adınızı yazın" required="">
+                                            <input id="name1" name="name1" class="form-control" type="text" placeholder="Adınızı yazın" required="">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>E-poçt <small>*</small></label>
-                                            <input name="form_email" class="form-control required email" type="email" placeholder="E-poçt adresinizi yazın">
+                                            <input id="email1" name="email1" class="form-control required email" type="email" placeholder="E-poçt adresinizi yazın">
                                         </div>
                                     </div>
                                 </div>
@@ -1006,58 +1004,33 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Mövzü başlığı <small>*</small></label>
-                                            <input name="form_subject" class="form-control required" type="text" placeholder="Mövzü başlığını yazın">
+                                            <input id="subject1" name="subject1" class="form-control required" type="text" placeholder="Mövzü başlığını yazın">
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label>Mobil nömrə <small>*</small></label>
-                                            <input name="form_phone" class="form-control required" type="text" placeholder="Mobil nömrənizi yazın">
+                                            <input id="phone1" name="phone1" class="form-control required" type="text" placeholder="Mobil nömrənizi yazın">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label>Mesaj</label>
-                                    <textarea name="form_message" class="form-control required" rows="5" placeholder="Mesajınızı yazın"></textarea>
+                                    <textarea id="message1" name="message1" class="form-control required" rows="5" placeholder="Mesajınızı yazın"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <input name="form_botcheck" class="form-control" type="hidden" value="" />
-                                    <button type="submit" class="btn btn-dark btn-theme-colored btn-flat mr-5" data-loading-text="Zəhmət olmasa gözləyin...">Göndər</button>
+                                    <button type="submit" class="contactMessage btn btn-dark btn-theme-colored btn-flat mr-5" data-loading-text="Zəhmət olmasa gözləyin...">Göndər</button>
                                     <button type="reset" class="btn btn-default btn-flat btn-theme-colored">Sıfırla</button>
                                 </div>
                             </form>
-
-                            <!-- Contact Form Validation-->
-                            @*<script type="text/javascript">
-                                $("#contact_form").validate({
-                                    submitHandler: function (form) {
-                                        var form_btn = $(form).find('button[type="submit"]');
-                                        var form_result_div = '#form-result';
-                                        $(form_result_div).remove();
-                                        form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
-                                        var form_btn_old_msg = form_btn.html();
-                                        form_btn.html(form_btn.prop('disabled', true).data("loading-text"));
-                                        $(form).ajaxSubmit({
-                                            dataType: 'json',
-                                            success: function (data) {
-                                                if (data.status == 'true') {
-                                                    $(form).find('.form-control').val('');
-                                                }
-                                                form_btn.prop('disabled', false).html(form_btn_old_msg);
-                                                $(form_result_div).html(data.message).fadeIn('slow');
-                                                setTimeout(function () { $(form_result_div).fadeOut('slow') }, 6000);
-                                            }
-                                        });
-                                    }
-                                });
-                            </script>*@
                         </div>
                         <div class="col-md-6">
                             <h3 class="line-bottom mt-0">Bizimlə əlaqə saxlayın</h3>
                             <ul class="styled-icons icon-dark icon-sm icon-circled mb-20">
                                 <li><a href="@setting.Facebook" data-bg-color="#3B5998"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="@setting.Instagram" data-bg-color="#D71619"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="@setting.Instagram" data-bg-color="#FB3958"><i class="fa fa-instagram"></i></a></li>
                                 <li><a href="@setting.Youtube" data-bg-color="#D71619"><i class="fa fa-youtube"></i></a></li>
                             </ul>
 
@@ -1109,11 +1082,9 @@
                         <img alt="" src="~/Public/images/logo-wide-white.png">
                         <p class="font-12 mt-20 mb-10">Medinova is a library of Crowdfunding and Medinova templates with predefined elements which helps you to build your own site. Lorem ipsum dolor sit amet consectetur.</p>
                         <ul class="social-icons icon-dark mt-20">
-                            <li><a href="#" data-bg-color="#3B5998"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#" data-bg-color="#02B0E8"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#" data-bg-color="#05A7E3"><i class="fa fa-skype"></i></a></li>
-                            <li><a href="#" data-bg-color="#A11312"><i class="fa fa-google-plus"></i></a></li>
-                            <li><a href="#" data-bg-color="#C22E2A"><i class="fa fa-youtube"></i></a></li>
+                            <li><a href="@setting.Facebook" data-bg-color="#3B5998"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="@setting.Instagram" data-bg-color="#FB3958 "><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="@setting.Youtube" data-bg-color="#C22E2A"><i class="fa fa-youtube"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -1121,27 +1092,16 @@
                     <div class="widget dark">
                         <h5 class="widget-title line-bottom">Latest News</h5>
                         <div class="latest-posts">
-                            <article class="post media-post clearfix pb-0 mb-10">
-                                <a class="post-thumb" href="#"><img src="https://placehold.it/80x55" alt=""></a>
-                                <div class="post-right">
-                                    <h5 class="post-title mt-0 mb-5"><a href="#">Sustainable Construction</a></h5>
-                                    <p class="post-date mb-0 font-12">Mar 08, 2015</p>
-                                </div>
-                            </article>
-                            <article class="post media-post clearfix pb-0 mb-10">
-                                <a class="post-thumb" href="#"><img src="https://placehold.it/80x55" alt=""></a>
-                                <div class="post-right">
-                                    <h5 class="post-title mt-0 mb-5"><a href="#">Industrial Coatings</a></h5>
-                                    <p class="post-date mb-0 font-12">Mar 08, 2015</p>
-                                </div>
-                            </article>
-                            <article class="post media-post clearfix pb-0 mb-10">
-                                <a class="post-thumb" href="#"><img src="https://placehold.it/80x55" alt=""></a>
-                                <div class="post-right">
-                                    <h5 class="post-title mt-0 mb-5"><a href="#">Storefront Installations</a></h5>
-                                    <p class="post-date mb-0 font-12">Mar 08, 2015</p>
-                                </div>
-                            </article>
+                            @foreach (var blogs in Model.Blogs.OrderByDescending(b=>b.Date).Take(3))
+                            {
+                                <article class="post media-post clearfix pb-0 mb-10">
+                                    <a class="post-thumb" style="max-width:30%" href="#"><img src="~/Uploads/@blogs.TitlePhoto" alt="~/Uploads/@blogs.TitlePhoto" ></a>
+                                    <div class="post-right">
+                                        <h5 class="post-title mt-0 mb-5"><a href="#">@blogs.Title</a></h5>
+                                        <p class="post-date mb-0 font-12">@blogs.Date.ToString("dd/MM/yyyy")</p>
+                                    </div>
+                                </article>
+                            }
                         </div>
                     </div>
                 </div>
@@ -1149,9 +1109,9 @@
                     <div class="widget dark">
                         <h5 class="widget-title line-bottom">Quick Contact</h5>
                         <ul class="list list-border">
-                            <li><a href="#">+(012) 345 6789</a></li>
-                            <li><a href="#">hello@yourdomain.com</a></li>
-                            <li><a href="#" class="lineheight-20">121 King Street, Melbourne Victoria 3000, Australia</a></li>
+                            <li><a >@setting.Phone</li>
+                            <li><a >@setting.Email</a></li>
+                            <li><a href="#" class="lineheight-20">@setting.Adress</a></li>
                         </ul>
                     </div>
                 </div>
@@ -1184,6 +1144,7 @@
     <script type="text/javascript" src="~/Public/js/revolution-slider/js/extensions/revolution.extension.slideanims.min.js"></script>
     <script type="text/javascript" src="~/Public/js/revolution-slider/js/extensions/revolution.extension.video.min.js"></script>
     <script type="text/javascript" src="~/Public/js/timeline.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script src="~/Public/js/script.js"></script>
 
 </body>

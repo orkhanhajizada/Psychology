@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@model PsychologyCenter.VwModels.VwBlogRead
+
+@{
+    PsychologyCenter.Models.Setting setting = ViewBag.Setting as PsychologyCenter.Models.Setting;
+
+}
+
+<!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
 
@@ -73,7 +80,7 @@
                         <div class="row">
                             <div class="col-md-12 xs-text-center">
                                 <h3 class="font-28">
-                                    Single Post</h2>
+                                    @Model.Blog.Title</h2>
                                     <ol class="breadcrumb white mt-10">
                                         <li><a href="#">Ana səhifə</a></li>
                                         <li><a href="#">Əvvəlki səhifə</a></li>
@@ -92,33 +99,48 @@
                             <div class="blog-posts single-post">
                                 <article class="post clearfix mb-0">
                                     <div class="entry-header">
-                                        <div class="post-thumb thumb"> <img src="http://placehold.it/730x400" alt="" class="img-responsive img-fullwidth"> </div>
+                                        <div class="post-thumb thumb"> <img src="~/Uploads/@Model.Blog.Photo" alt="~/Uploads/@Model.Blog.Photo" class="img-responsive img-fullwidth"> </div>
                                         <div class="entry-meta meta-absolute text-center pl-15 pr-15">
                                             <div class="display-table">
                                                 <div class="display-table-cell">
+                                                    <input type="hidden" class="BlogID" value="@Model.Blog.Id" />
                                                     <ul>
-                                                        <li><a class="text-white" href="#"><i class="text-white fa fa-thumbs-o-up"></i> 265 <br> Likes</a></li>
-                                                        <li class="mt-20"><a class="text-white" href="#"><i class="text-white fa fa-comments-o"></i> 72 <br> comments</a></li>
+
+                                                        <li>
+                                                            <button class="text-white like" style="cursor:pointer" @*href="@Url.Action("Like","Blog", new {id=Model.Blog.Id })"*@>
+                                                                <i class="text-white fa fa-thumbs-o-up"></i><span class="LikeCount" style="margin:0px;font-size:14px">
+                                                                    @if (Model.Likes.Where(l => l.BlogId == Model.Blog.Id) != null)
+                                                                    {
+                                                                        @Model.Likes.Where(l => l.BlogId == Model.Blog.Id).Count()
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        @:0
+                                                                    }
+
+
+                                                                </span> <br> Bəyənmə
+                                                            </button>
+                                                        </li>
+                                                        <li class="mt-20"><a class="text-white" ><i class="text-white fa fa-comments-o"></i> @Model.Comments.Where(w => w.BlogId == Model.Blog.Id).Count() <br> Rəy</a></li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="entry-title pt-0">
-                                        <h3><a href="#">Different types of stroke</a></h3>
+                                        <h3><a href="#">@Model.Blog.Title</a></h3>
                                     </div>
                                     <div class="entry-meta">
                                         <ul class="list-inline">
-                                            <li>Posted: <span class="text-theme-colored">26 Oct 2015</span></li>
-                                            <li>By: <span class="text-theme-colored">Admin</span></li>
+                                            <li>Tarix:  <span class="text-theme-colored">@Model.Blog.Date.ToString("dd/MM/yyyy")</span></li>
+                                            @*<li>By: <span class="text-theme-colored">Admin</span></li>*@
                                         </ul>
                                     </div>
                                     <div class="entry-content mt-10">
-                                        <p class="mb-15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        <p class="mb-15">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna et sed aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                        <p class="mb-15">@Model.Blog.Text</p>
                                         <div class="mt-30 mb-0">
-                                            <h5 class="pull-left mt-10 mr-20 text-theme-colored">Share:</h5>
+                                            <h5 class="pull-left mt-10 mr-20 text-theme-colored">Paylaş:</h5>
                                             <ul class="social-icons icon-circled m-0">
                                                 <li><a href="#" data-bg-color="#3A5795"><i class="fa fa-facebook text-white"></i></a></li>
                                             </ul>
@@ -126,15 +148,19 @@
                                     </div>
                                 </article>
                                 <div class="comments-area">
-                                    <h5 class="comments-title">Comments</h5>
+                                    <h5 class="comments-title">Rəylər</h5>
                                     <ul class="comment-list">
                                         <li>
                                             <div class="media comment-author">
-                                                <a class="media-left" href="#"><img class="img-thumbnail" src="http://placehold.it/75x75" alt=""></a>
+                                                @*<a class="media-left" href="#"><img class="img-thumbnail" src="http://placehold.it/75x75" alt=""></a>*@
                                                 <div class="media-body">
-                                                    <h5 class="media-heading comment-heading">John Doe says:</h5>
-                                                    <div class="comment-date">23/06/2014</div>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna et sed aliqua. Ut enim ea commodo consequat...</p>
+                                                    @foreach (var com in Model.Comments.Where(c => c.BlogId == Model.Blog.Id).ToList())
+                                                    {
+                                                        <h5 class="media-heading comment-heading mt-30">@com.Name</h5>
+                                                        <div class="comment-date">@com.Date.ToString("dd/MM/yyy")</div>
+                                                        <p>@com.Content</p>
+
+                                                    }
                                                 </div>
                                             </div>
                                         </li>
@@ -170,14 +196,13 @@
                         <div class="col-sm-12 col-md-3">
                             <div class="sidebar sidebar-right mt-sm-30">
                                 <div class="widget">
-                                    <h5 class="widget-title line-bottom">Categories</h5>
+                                    <h5 class="widget-title line-bottom">Kateqoriya</h5>
                                     <div class="categories">
                                         <ul class="list list-border angle-double-right">
-                                            <li><a href="#">Creative<span>(19)</span></a></li>
-                                            <li><a href="#">Portfolio<span>(21)</span></a></li>
-                                            <li><a href="#">Fitness<span>(15)</span></a></li>
-                                            <li><a href="#">Gym<span>(35)</span></a></li>
-                                            <li><a href="#">Personal<span>(16)</span></a></li>
+                                            @foreach (var cat in Model.Categories)
+                                            {
+                                                <li><a href="@Url.Action("index","blog", new {category = cat.Id })">@cat.Name</a></li>
+                                            }
                                         </ul>
                                     </div>
                                 </div>
@@ -197,49 +222,36 @@
                             <img alt="" src="~/Public/images/logo-wide-white.png">
                             <p class="font-12 mt-20 mb-10">Medinova is a library of Crowdfunding and Medinova templates with predefined elements which helps you to build your own site. Lorem ipsum dolor sit amet consectetur.</p>
                             <ul class="social-icons icon-dark mt-20">
-                                <li><a href="#" data-bg-color="#3B5998"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#" data-bg-color="#02B0E8"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" data-bg-color="#05A7E3"><i class="fa fa-skype"></i></a></li>
-                                <li><a href="#" data-bg-color="#A11312"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#" data-bg-color="#C22E2A"><i class="fa fa-youtube"></i></a></li>
+                                <li><a href="@setting.Facebook" data-bg-color="#3B5998"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="@setting.Instagram" data-bg-color="#FB3958 "><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="@setting.Youtube" data-bg-color="#C22E2A"><i class="fa fa-youtube"></i></a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4">
                         <div class="widget dark">
-                            <h5 class="widget-title line-bottom">Latest News</h5>
+                            <h5 class="widget-title line-bottom">Son Məqalələr</h5>
                             <div class="latest-posts">
-                                <article class="post media-post clearfix pb-0 mb-10">
-                                    <a class="post-thumb" href="#"><img src="https://placehold.it/80x55" alt=""></a>
-                                    <div class="post-right">
-                                        <h5 class="post-title mt-0 mb-5"><a href="#">Sustainable Construction</a></h5>
-                                        <p class="post-date mb-0 font-12">Mar 08, 2015</p>
-                                    </div>
-                                </article>
-                                <article class="post media-post clearfix pb-0 mb-10">
-                                    <a class="post-thumb" href="#"><img src="https://placehold.it/80x55" alt=""></a>
-                                    <div class="post-right">
-                                        <h5 class="post-title mt-0 mb-5"><a href="#">Industrial Coatings</a></h5>
-                                        <p class="post-date mb-0 font-12">Mar 08, 2015</p>
-                                    </div>
-                                </article>
-                                <article class="post media-post clearfix pb-0 mb-10">
-                                    <a class="post-thumb" href="#"><img src="https://placehold.it/80x55" alt=""></a>
-                                    <div class="post-right">
-                                        <h5 class="post-title mt-0 mb-5"><a href="#">Storefront Installations</a></h5>
-                                        <p class="post-date mb-0 font-12">Mar 08, 2015</p>
-                                    </div>
-                                </article>
+                                @foreach (var blogs in Model.Blogs.OrderByDescending(b => b.Date).Take(3))
+                                {
+                                    <article class="post media-post clearfix pb-0 mb-10">
+                                        <a class="post-thumb" style="max-width:30%" href="#"><img src="~/Uploads/@blogs.TitlePhoto" alt="~/Uploads/@blogs.TitlePhoto"></a>
+                                        <div class="post-right">
+                                            <h5 class="post-title mt-0 mb-5"><a href="#">@blogs.Title</a></h5>
+                                            <p class="post-date mb-0 font-12">@blogs.Date.ToString("dd/MM/yyyy")</p>
+                                        </div>
+                                    </article>
+                                }
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-4">
                         <div class="widget dark">
-                            <h5 class="widget-title line-bottom">Quick Contact</h5>
+                            <h5 class="widget-title line-bottom">Əlaqə</h5>
                             <ul class="list list-border">
-                                <li><a href="#">+(012) 345 6789</a></li>
-                                <li><a href="#">hello@yourdomain.com</a></li>
-                                <li><a href="#" class="lineheight-20">121 King Street, Melbourne Victoria 3000, Australia</a></li>
+                                <li><a>@setting.Phone</li>
+                                <li><a>@setting.Email</a></li>
+                                <li><a href="#" class="lineheight-20">@setting.Adress</a></li>
                             </ul>
                         </div>
                     </div>
@@ -248,7 +260,7 @@
             <div class="container-fluid bg-theme-colored p-20">
                 <div class="row text-center">
                     <div class="col-md-12">
-                        <p class="text-white font-11 m-0">Copyright &copy;2015 ThemeMascot. All Rights Reserved</p>
+                        <p class="text-white font-11 m-0">Copyright &copy;2019 Orkhan Hajizada. All Rights Reserved</p>
                     </div>
                 </div>
             </div>
@@ -259,6 +271,7 @@
     <!-- Footer Scripts -->
     <!-- JS | Custom script for all pages -->
     <script src="~/Public/js/custom.js"></script>
+    <script src="~/Public/js/script.js"></script>
 
 </body>
 </html>

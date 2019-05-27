@@ -78,7 +78,9 @@ var THEMEMASCOT = {};
         TM_datePicker: function() {
             $( ".date-picker" ).datepicker();
             $( ".time-picker" ).timepicker();
-            $( ".datetime-picker" ).datetimepicker();
+            $(".datetime-picker").datetimepicker({
+                format: 'DD/MM/YYYY HH:mm:ss',
+            });
         },
 
         /* ---------------------------------------------------------------------- */

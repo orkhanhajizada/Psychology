@@ -1,4 +1,12 @@
-﻿<!DOCTYPE html>
+﻿@model PsychologyCenter.VwModels.VwBlog
+
+@{
+    PsychologyCenter.Models.Setting setting = ViewBag.Setting as PsychologyCenter.Models.Setting;
+}
+
+
+
+<!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
 
@@ -71,12 +79,9 @@
                     <div class="section-content">
                         <div class="row">
                             <div class="col-md-12 xs-text-center">
-                                <h3 class="font-28">
-                                    Məqalələr</h2>
+                                <h3 class="font-28">Məqalələr</h2>
                                     <ol class="breadcrumb white mt-10">
-                                        <li><a href="#">Ana səhifə</a></li>
-                                        
-                                        @*<li class="active text-theme-colored">Blog</li>*@
+                                        <li><a href="@Url.Action("index","home")">Ana səhifə</a></li>
                                     </ol>
                             </div>
                         </div>
@@ -89,182 +94,36 @@
                 <div class="container mt-30 mb-30 pt-30 pb-30">
                     <div class="row blog-posts">
                         <div class="col-md-9">
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                <article class="post style1 clearfix maxwidth500">
-                                    <div class="col-md-12 p-0">
-                                        <div class="entry-header">
-                                            <div class="post-thumb">
-                                                <img src="http://placehold.it/360x200" alt="" class="img-responsive img-fullwidth">
-                                            </div>
-                                            <div class="entry-date entry-date-absolute">
-                                                25 <span>Dec</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 p-0">
-                                        <div class="entry-content pl-50 p-20 pt-30 pr-20">
-                                            <h5 class="entry-title pt-0"><a href="#">Different types of stroke</a></h5>
-                                            <p>Lorem ipsum dolor adipisicing amet, consectetur sit elit. Aspernatur incidihil quo officia.</p>
-                                            <div class="entry-meta pull-left flip mt-10">
-                                                <ul class="list-inline">
-                                                    <li><i class="fa fa-thumbs-o-up mr-5"></i> 13</li>
-                                                    <li><i class="fa fa-comments-o mr-5"></i> 43</li>
-                                                </ul>
-                                            </div>
-                                            <a class="text-theme-colored mt-10 mb-0 pull-right flip" href="#">Read more <i class="fa fa-angle-double-right"></i></a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                <article class="post style1 clearfix maxwidth500">
-                                    <div class="col-md-12 p-0">
-                                        <div class="entry-header">
-                                            <div class="post-thumb">
-                                                <img src="http://placehold.it/360x200" alt="" class="img-responsive img-fullwidth">
-                                            </div>
-                                            <div class="entry-date entry-date-absolute">
-                                                25 <span>Dec</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 p-0">
-                                        <div class="entry-content pl-50 p-20 pt-30 pr-20">
-                                            <h5 class="entry-title pt-0"><a href="#">Different types of stroke</a></h5>
-                                            <p>Lorem ipsum dolor adipisicing amet, consectetur sit elit. Aspernatur incidihil quo officia.</p>
-                                            <div class="entry-meta pull-left flip mt-10">
-                                                <ul class="list-inline">
-                                                    <li><i class="fa fa-thumbs-o-up mr-5"></i> 13</li>
-                                                    <li><i class="fa fa-comments-o mr-5"></i> 43</li>
-                                                </ul>
-                                            </div>
-                                            <a class="text-theme-colored mt-10 mb-0 pull-right flip" href="#">Read more <i class="fa fa-angle-double-right"></i></a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                <article class="post style1 clearfix maxwidth500">
-                                    <div class="col-md-12 p-0">
-                                        <div class="entry-header">
-                                            <div class="post-thumb">
-                                                <img src="http://placehold.it/360x200" alt="" class="img-responsive img-fullwidth">
-                                            </div>
-                                            <div class="entry-date entry-date-absolute">
-                                                25 <span>Dec</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 p-0">
-                                        <div class="entry-content pl-50 p-20 pt-30 pr-20">
-                                            <h5 class="entry-title pt-0"><a href="#">Different types of stroke</a></h5>
-                                            <p>Lorem ipsum dolor adipisicing amet, consectetur sit elit. Aspernatur incidihil quo officia.</p>
-                                            <div class="entry-meta pull-left flip mt-10">
-                                                <ul class="list-inline">
-                                                    <li><i class="fa fa-thumbs-o-up mr-5"></i> 13</li>
-                                                    <li><i class="fa fa-comments-o mr-5"></i> 43</li>
-                                                </ul>
-                                            </div>
-                                            <a class="text-theme-colored mt-10 mb-0 pull-right flip" href="#">Read more <i class="fa fa-angle-double-right"></i></a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="col-sm-12 col-md-6 col-lg-6">
-                                <article class="post style1 clearfix maxwidth500">
-                                    <div class="col-md-12 p-0">
-                                        <div class="entry-header">
-                                            <div class="post-thumb">
-                                                <img src="http://placehold.it/360x200" alt="" class="img-responsive img-fullwidth">
-                                            </div>
-                                            <div class="entry-date entry-date-absolute">
-                                                25 <span>Dec</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 p-0">
-                                        <div class="entry-content pl-50 p-20 pt-30 pr-20">
-                                            <h5 class="entry-title pt-0"><a href="#">Different types of stroke</a></h5>
-                                            <p>Lorem ipsum dolor adipisicing amet, consectetur sit elit. Aspernatur incidihil quo officia.</p>
-                                            <div class="entry-meta pull-left flip mt-10">
-                                                <ul class="list-inline">
-                                                    <li><i class="fa fa-thumbs-o-up mr-5"></i> 13</li>
-                                                    <li><i class="fa fa-comments-o mr-5"></i> 43</li>
-                                                </ul>
-                                            </div>
-                                            <a class="text-theme-colored mt-10 mb-0 pull-right flip" href="#">Read more <i class="fa fa-angle-double-right"></i></a>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
+                            @{
+                                Html.RenderPartial("~/Views/Blog/PartialBlog.cshtml", Model.Blogs);
+                            }
                         </div>
                         <div class="col-sm-12 col-md-3">
                             <div class="sidebar sidebar-right mt-sm-30">
                                 <div class="widget">
-                                    <h5 class="widget-title line-bottom">Categories</h5>
+                                    <h5 class="widget-title line-bottom">Kategoriya</h5>
                                     <div class="categories">
                                         <ul class="list list-border angle-double-right">
-                                            <li><a href="#">Creative<span>(19)</span></a></li>
-                                            <li><a href="#">Portfolio<span>(21)</span></a></li>
-                                            <li><a href="#">Fitness<span>(15)</span></a></li>
-                                            <li><a href="#">Gym<span>(35)</span></a></li>
-                                            <li><a href="#">Personal<span>(16)</span></a></li>
+                                            @foreach (var cat in Model.Categories)
+                                            {
+                                                <li><a href="@Url.Action("index","blog", new {category = cat.Id })">@cat.Name<span>@*@Model.Blogs.Where(b=>b.BlogCategoryId==cat.Id).Count()*@</span></a></li>
+                                            }
                                         </ul>
                                     </div>
                                 </div>
-                                @*<div class="widget">
-                                    <h5 class="widget-title line-bottom">Latest News</h5>
-                                    <div class="latest-posts">
-                                        <article class="post media-post clearfix pb-0 mb-10">
-                                            <a class="post-thumb" href="#"><img src="https://placehold.it/75x75" alt=""></a>
-                                            <div class="post-right">
-                                                <h5 class="post-title mt-0"><a href="#">Sustainable Construction</a></h5>
-                                                <p>Lorem ipsum dolor sit amet adipisicing elit...</p>
-                                            </div>
-                                        </article>
-                                        <article class="post media-post clearfix pb-0 mb-10">
-                                            <a class="post-thumb" href="#"><img src="https://placehold.it/75x75" alt=""></a>
-                                            <div class="post-right">
-                                                <h5 class="post-title mt-0"><a href="#">Industrial Coatings</a></h5>
-                                                <p>Lorem ipsum dolor sit amet adipisicing elit...</p>
-                                            </div>
-                                        </article>
-                                        <article class="post media-post clearfix pb-0 mb-10">
-                                            <a class="post-thumb" href="#"><img src="https://placehold.it/75x75" alt=""></a>
-                                            <div class="post-right">
-                                                <h5 class="post-title mt-0"><a href="#">Storefront Installations</a></h5>
-                                                <p>Lorem ipsum dolor sit amet adipisicing elit...</p>
-                                            </div>
-                                        </article>
-                                    </div>
-                                </div>*@
+
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <nav>
-                                <ul class="pagination theme-colored xs-pull-center m-0">
-                                    <li> <a href="#" aria-label="Previous"> <span aria-hidden="true">«</span> </a> </li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">...</a></li>
-                                    <li> <a href="#" aria-label="Next"> <span aria-hidden="true">»</span> </a> </li>
-                                </ul>
-                            </nav>
-                        </div>
+                    <div class="col-md-9 next-page load-more-blog mt-30" style="text-align:center" data-page="2">
+                        <a class="btn btn-lg btn-dark btn-theme-colored" href="#">Daha çox</a>
                     </div>
+
                 </div>
             </section>
         </div>
         <!-- end main-content -->
+        <!-- Footer -->
         <!-- Footer -->
         <footer id="footer" class="footer pb-0" data-bg-img="Public/images/footer-bg.png" data-bg-color="#25272e">
             <div class="container pb-20">
@@ -274,11 +133,9 @@
                             <img alt="" src="~/Public/images/logo-wide-white.png">
                             <p class="font-12 mt-20 mb-10">Medinova is a library of Crowdfunding and Medinova templates with predefined elements which helps you to build your own site. Lorem ipsum dolor sit amet consectetur.</p>
                             <ul class="social-icons icon-dark mt-20">
-                                <li><a href="#" data-bg-color="#3B5998"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#" data-bg-color="#02B0E8"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" data-bg-color="#05A7E3"><i class="fa fa-skype"></i></a></li>
-                                <li><a href="#" data-bg-color="#A11312"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#" data-bg-color="#C22E2A"><i class="fa fa-youtube"></i></a></li>
+                                <li><a href="@setting.Facebook" data-bg-color="#3B5998"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="@setting.Instagram" data-bg-color="#FB3958 "><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="@setting.Youtube" data-bg-color="#C22E2A"><i class="fa fa-youtube"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -286,27 +143,16 @@
                         <div class="widget dark">
                             <h5 class="widget-title line-bottom">Latest News</h5>
                             <div class="latest-posts">
-                                <article class="post media-post clearfix pb-0 mb-10">
-                                    <a class="post-thumb" href="#"><img src="https://placehold.it/80x55" alt=""></a>
-                                    <div class="post-right">
-                                        <h5 class="post-title mt-0 mb-5"><a href="#">Sustainable Construction</a></h5>
-                                        <p class="post-date mb-0 font-12">Mar 08, 2015</p>
-                                    </div>
-                                </article>
-                                <article class="post media-post clearfix pb-0 mb-10">
-                                    <a class="post-thumb" href="#"><img src="https://placehold.it/80x55" alt=""></a>
-                                    <div class="post-right">
-                                        <h5 class="post-title mt-0 mb-5"><a href="#">Industrial Coatings</a></h5>
-                                        <p class="post-date mb-0 font-12">Mar 08, 2015</p>
-                                    </div>
-                                </article>
-                                <article class="post media-post clearfix pb-0 mb-10">
-                                    <a class="post-thumb" href="#"><img src="https://placehold.it/80x55" alt=""></a>
-                                    <div class="post-right">
-                                        <h5 class="post-title mt-0 mb-5"><a href="#">Storefront Installations</a></h5>
-                                        <p class="post-date mb-0 font-12">Mar 08, 2015</p>
-                                    </div>
-                                </article>
+                                @foreach (var blogs in Model.Blogs.OrderByDescending(b => b.Date).Take(3))
+                                {
+                                    <article class="post media-post clearfix pb-0 mb-10">
+                                        <a class="post-thumb" style="max-width:30%" href="#"><img src="~/Uploads/@blogs.TitlePhoto" alt="~/Uploads/@blogs.TitlePhoto"></a>
+                                        <div class="post-right">
+                                            <h5 class="post-title mt-0 mb-5"><a href="#">@blogs.Title</a></h5>
+                                            <p class="post-date mb-0 font-12">@blogs.Date.ToString("dd/MM/yyyy")</p>
+                                        </div>
+                                    </article>
+                                }
                             </div>
                         </div>
                     </div>
@@ -314,9 +160,9 @@
                         <div class="widget dark">
                             <h5 class="widget-title line-bottom">Quick Contact</h5>
                             <ul class="list list-border">
-                                <li><a href="#">+(012) 345 6789</a></li>
-                                <li><a href="#">hello@yourdomain.com</a></li>
-                                <li><a href="#" class="lineheight-20">121 King Street, Melbourne Victoria 3000, Australia</a></li>
+                                <li><a>@setting.Phone</li>
+                                <li><a>@setting.Email</a></li>
+                                <li><a href="#" class="lineheight-20">@setting.Adress</a></li>
                             </ul>
                         </div>
                     </div>

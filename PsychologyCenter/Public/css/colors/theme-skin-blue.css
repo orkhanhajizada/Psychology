@@ -5,6 +5,12 @@
 COLOR : Blue
 COLOR CODE: #00a3c8
 ----------------------------------------- */
+
+.like {
+    background-color: transparent;
+    border-color: transparent;
+}
+
 /* text-theme-color */
 .text-theme-colored {
     color: #8D5173 !important;
