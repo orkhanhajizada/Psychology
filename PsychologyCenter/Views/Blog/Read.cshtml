@@ -103,11 +103,11 @@
                                         <div class="entry-meta meta-absolute text-center pl-15 pr-15">
                                             <div class="display-table">
                                                 <div class="display-table-cell">
-                                                    <input type="hidden" class="BlogID" value="@Model.Blog.Id" />
+                                                    <input type="hidden" class="BlogID" name="blogId" value="@Model.Blog.Id" />
                                                     <ul>
 
                                                         <li>
-                                                            <button class="text-white like" style="cursor:pointer" @*href="@Url.Action("Like","Blog", new {id=Model.Blog.Id })"*@>
+                                                            <button class="text-white like" style="cursor:pointer">
                                                                 <i class="text-white fa fa-thumbs-o-up"></i><span class="LikeCount" style="margin:0px;font-size:14px">
                                                                     @if (Model.Likes.Where(l => l.BlogId == Model.Blog.Id) != null)
                                                                     {
@@ -122,7 +122,30 @@
                                                                 </span> <br> Bəyənmə
                                                             </button>
                                                         </li>
-                                                        <li class="mt-20"><a class="text-white" ><i class="text-white fa fa-comments-o"></i> @Model.Comments.Where(w => w.BlogId == Model.Blog.Id).Count() <br> Rəy</a></li>
+                                                        <li class="text-white mt-20">
+                                                            <i class="text-white fa fa-comments-o"></i><span class="reads" style="margin:0px;font-size:14px">
+                                                                @if (Model.Comments.FirstOrDefault(w => w.BlogId == Model.Blog.Id) != null)
+                                                                {
+                                                                    @Model.Comments.Where(w => w.BlogId == Model.Blog.Id).Count()
+                                                                }
+                                                                else
+                                                                {
+                                                                    @:0
+                                                                }
+                                                            </span><br> Rəy
+                                                        </li>
+                                                        <li class="text-white mt-20">
+                                                            <i class="text-white fa fa-comments-o mr-5"></i>
+                                                            @if (Model.ReadCounts != null)
+                                                            {
+                                                                @Model.ReadCounts.Where(r => r.BlogId == Model.Blog.Id).Count()
+                                                            }
+                                                            else
+                                                            {
+                                                                @:0
+                                                            }
+                                                            <br> Baxış sayı
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -170,20 +193,20 @@
                                 <div class="comment-box">
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <h5>Leave a Comment</h5>
+                                            <h5>Rəy bildirin</h5>
                                             <div class="row">
                                                 <form role="form" id="comment-form">
                                                     <div class="col-sm-6 pt-0 pb-0">
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control" required name="contact_name" id="contact_name" placeholder="Enter Name">
+                                                            <input type="text" class="form-control"  name="name" id="name" placeholder="Ad və soyad" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-10">
                                                         <div class="form-group">
-                                                            <textarea class="form-control" required name="contact_message2" id="contact_message2" placeholder="Enter Message" rows="7"></textarea>
+                                                            <textarea class="form-control"  name="message" id="message" placeholder="Rəyiniz" rows="7" required></textarea>
                                                         </div>
                                                         <div class="form-group">
-                                                            <button type="submit" class="btn btn-dark btn-flat pull-right m-0" data-loading-text="Please wait...">Submit</button>
+                                                            <button type="submit" class="commentButton btn btn-dark btn-flat pull-right m-0" data-loading-text="Zəhmət olmasa gözləyin...">Göndər</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -270,6 +293,7 @@
     <!-- end wrapper -->
     <!-- Footer Scripts -->
     <!-- JS | Custom script for all pages -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script src="~/Public/js/custom.js"></script>
     <script src="~/Public/js/script.js"></script>
 

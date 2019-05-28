@@ -187,6 +187,14 @@
     <Compile Include="Migrations\201905132014113_DeleteSpecItem.Designer.cs">
       <DependentUpon>201905132014113_DeleteSpecItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905271510039_ReadCountAdd.cs" />
+    <Compile Include="Migrations\201905271510039_ReadCountAdd.Designer.cs">
+      <DependentUpon>201905271510039_ReadCountAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905281404171_CommentContentRequired.cs" />
+    <Compile Include="Migrations\201905281404171_CommentContentRequired.Designer.cs">
+      <DependentUpon>201905281404171_CommentContentRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
     <Compile Include="Models\Blog.cs" />
@@ -199,6 +207,7 @@
     <Compile Include="Models\Like.cs" />
     <Compile Include="Models\OpeningHour.cs" />
     <Compile Include="Models\Phrase.cs" />
+    <Compile Include="Models\ReadCount.cs" />
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\Slider.cs" />
@@ -948,6 +957,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905132014113_DeleteSpecItem.resx">
       <DependentUpon>201905132014113_DeleteSpecItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905271510039_ReadCountAdd.resx">
+      <DependentUpon>201905271510039_ReadCountAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905281404171_CommentContentRequired.resx">
+      <DependentUpon>201905281404171_CommentContentRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,28 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace PsychologyCenter.Models
 {
-    public class Comment
+    public class ReadCount
     {
         public int Id { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string Name { get; set; }
 
         public int BlogId { get; set; }
 
         public DateTime Date { get; set; }
 
-        [Required]
-        [StringLength(1000)]
-        public string Content { get; set; }
-
-        public bool IsActive { get; set; }
+        [Column(TypeName = "nvarchar")]
+        public string Ip { get; set; }
 
         public Blog Blog { get; set; }
     }

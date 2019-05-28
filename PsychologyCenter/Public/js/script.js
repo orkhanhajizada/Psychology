@@ -50,34 +50,7 @@
     }
 });
 
-//<div class="col-sm-12 col-md-6 col-lg-6">
-//    <article class="post style1 clearfix maxwidth500">
-//        <div class="col-md-12 p-0">
-//            <div class="entry-header">
-//                <div class="post-thumb">
-//                    <img src="${blog.Photo}" alt="${blog.Title}" class="img-responsive img-fullwidth">
-//                 </div>
-//                    <div class="entry-date entry-date-absolute">
-//                        ${blog.Date.Day} <span>${blog.Date}</span>
-//                    </div>
-//                </div>
-//            </div>
-//            <div class="col-md-12 p-0">
-//                <div class="entry-content pl-50 p-20 pt-30 pr-20">
-//                    <h5 class="entry-title pt-0"><a href="${blog.Url}">${blog.Title}</a></h5>
-//                    <p>${blog.MinAbout}</p>
-//                    <div class="entry-meta pull-left flip mt-10">
-//                        <ul class="list-inline">
-//                            <li><i class="fa fa-thumbs-o-up mr-5"></i>@blog.Likes.Count()</li>
-//                            <li><i class="fa fa-comments-o mr-5"></i> @Model.Comments.Where(w => w.BlogId == blog.Id).Count()</li>
-//                        </ul>
-//                    </div>
-//                    <a class="text-theme-colored mt-10 mb-0 pull-right flip" href="@Url.Action("read","blog", new {Slug = blog.Slug})">Ətraflı <i class="fa fa-angle-double-right"></i></a>
-//                <div class="clearfix"></div>
-//            </div>
-//        </div>
-//    </article>
-//</div>
+
 
 
 //Like//
@@ -86,14 +59,12 @@
 $('.like').click(function (e) {
     e.preventDefault();
     var id = $('.BlogID').val();
-    console.log(id);
     $.ajax({
         type: 'POST',
         url: '/Home/Like',
         data: { id },
         dataType: 'json'
     }).done(function (response) {
-        console.log(response.Status.toString());
         if (response.Status.toString() === "200") {
             var likecount = $('.LikeCount').text();
             var total = parseInt(likecount) + 1;
@@ -105,6 +76,36 @@ $('.like').click(function (e) {
     });
 });
 
+
+
+//COMMENT//
+
+
+$('.commentButton').click(function (e) {
+    e.preventDefault();
+    var blogId = $('.BlogID').val();
+    var message = $('#message').val();
+    var name = $('#name').val();
+    $.ajax({
+        type: 'POST',
+        url: '/Home/CommentBlog',
+        data: { blogId, name, message },
+        dataType: 'json'
+    }).done(function (response) {
+        console.log(response.Status.toString());
+        swal("Uğurlu!", "Rəyiniz göndərildi!", "success");
+        
+        if (response.Status.toString() === "200") {
+            
+            $('#message').val('');
+            $('#name').val('');
+        }
+    }).fail(function (data) {
+        swal("Uğursuz!", "Xəta baş verdi yenidən yoxlayın!", "error");
+        $('#message').val('');
+        $('#name').val('');
+    });
+});
 
 
 
@@ -128,7 +129,7 @@ $('.like').click(function (e) {
             console.log(response);
             swal("Uğurlu!", "Mesajınız göndərildi!", "success");
             }).fail(function (data) {
-                console.log(data);
+                swal("Uğursuz!", "Xəta baş verdi yenidən yoxlayın və məlumatların hamısını doldurduğunuza əmin olun!", "error");
         });
 });
 
@@ -150,21 +151,8 @@ $('.contactMessage').click(function (e) {
         data: { email1, name1, phone1, subject1, message1 },
         dataType: 'json'
     }).done(function (response) {
-        console.log(response);
         swal("Uğurlu!", "Mesajınız göndərildi!", "success");
-        //$(formMessages).removeClass('error');
-        //$(formMessages).addClass('success');
-        //$(formMessages).text(response);
-        //$(this).find("input").val("");
-        //$(form).trigger("reset");
-    }).fail(function (data) {
-        console.log(data);
-        //$(formMessages).removeClass('success');
-        //$(formMessages).addClass('error');
-        //if (data.responseText !== '') {
-        //    $(formMessages).text(data.responseText);
-        //} else {
-        //    $(formMessages).text('Mesaj göndərilə bilmədi.Təkrar yoxlayın');
-        //}
+        }).fail(function (data) {
+            swal("Uğursuz!", "Xəta baş verdi yenidən yoxlayın və məlumatların hamısını doldurduğunuza əmin olun!", "error");
     });
 });

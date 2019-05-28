@@ -47,6 +47,7 @@ namespace PsychologyCenter.Models
 
         public List<Like> Likes { get; set; }
 
+        public List<ReadCount> ReadCounts { get; set; }
 
     }
 }

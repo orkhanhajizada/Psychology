@@ -35,5 +35,8 @@ namespace PsychologyCenter.VwModels
         public List<Comment> Comments { get; set; }
 
         public List<Like> Likes { get; set; }
+
+        public List<ReadCount> ReadCounts { get; set; }
+
     }
 }

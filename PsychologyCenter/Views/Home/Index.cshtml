@@ -799,12 +799,13 @@
 
                                 @foreach (var news in Model.Blogs)
                                 {
-
+                                    
                                     <div class="col-xs-12 col-sm-12 col-md-6">
                                         <article class="post style1 clearfix maxwidth500">
                                             <div class="col-md-4 p-0">
                                                 <div class="entry-header">
                                                     <div class="post-thumb">
+                                                        <input type="hidden"  value="@news.Id" />
                                                         <img src="~/Uploads/@news.Photo" alt="~/Uploads/@news.Photo" class="img-responsive img-fullwidth">
                                                     </div>
                                                     <div class="entry-date entry-date-absolute">
@@ -814,13 +815,15 @@
                                             </div>
                                             <div class="col-md-8 p-0">
                                                 <div class="entry-content pl-50 p-20 pt-30 pr-20">
+
                                                     <h5 class="entry-title pt-0"><a href="#">@news.Title</a></h5>
                                                     <p>@news.MinAbout</p>
                                                     <div class="entry-meta pull-left flip mt-10">
+
                                                         <ul class="list-inline">
                                                             <li>
                                                                 <i class="fa fa-thumbs-o-up mr-5"></i>
-                                                                @if (@news.Likes != null)
+                                                                @if (news.Likes != null)
                                                                 {
                                                                     @news.Likes.Count()
                                                                 }
@@ -832,7 +835,7 @@
                                                             </li>
                                                             <li>
                                                                 <i class="fa fa-comments-o mr-5"></i>
-                                                                @if (@Model.Comments.Where(w => w.BlogId == news.Id) != null)
+                                                                @if (Model.Comments.Where(w => w.BlogId == news.Id) != null)
                                                                 {
                                                                     @Model.Comments.Where(w => w.BlogId == news.Id).Count()
                                                                 }
@@ -842,9 +845,19 @@
                                                                 }
 
                                                             </li>
+                                                            <li>
+                                                                <i class="fa fa-comments-o mr-5"></i>
+                                                                @if (news.ReadCounts != null)
+                                                                {
+                                                                    @news.ReadCounts.Where(r => r.BlogId == news.Id).Count()
+                                                                }
+                                                                else
+                                                                {
+                                                                    @:0
+                                                                }
                                                         </ul>
                                                     </div>
-                                                    <a class="text-theme-colored mt-10 mb-0 pull-right flip" href="@Url.Action("read","blog", new {Slug= news.Slug})"> Ətraflı <i class="fa fa-angle-double-right"></i></a>
+                                                    <a class="readCount text-theme-colored mt-10 mb-0 pull-right flip" style="background-color:transparent;border-color:transparent" href="@Url.Action("read","blog", new {Slug= news.Slug})"> Ətraflı <i class="fa fa-angle-double-right"></i></a>
                                                     <div class="clearfix"></div>
                                                 </div>
                                             </div>

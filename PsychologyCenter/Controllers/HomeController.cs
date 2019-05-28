@@ -42,8 +42,11 @@ namespace PsychologyCenter.Controllers
 
             model.Likes = _context.Likes.Where(l => l.BlogId == l.Blog.Id).ToList();
 
+            model.ReadCounts = _context.ReadCounts.Where(r => r.BlogId == r.Blog.Id).ToList();
+
             model.Phrases = _context.Phrases.OrderByDescending(p => p.OrderBy).ToList();
-            
+
+
             return View(model);
         }
 
@@ -151,6 +154,28 @@ namespace PsychologyCenter.Controllers
             return Json(new { Status = "404" }, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult CommentBlog(string name, string message, int blogId)
+        {
+            Blog blog = _context.Blogs.FirstOrDefault(f => f.Id == blogId);
+            if (blog != null)
+            {
+
+                Comment comment = new Comment();
+                comment.Name = name;
+                comment.BlogId = blog.Id;
+                comment.Date = DateTime.Now;
+                comment.Content = message;
+                comment.IsActive = false;
+                _context.Comments.Add(comment);
+                _context.SaveChanges();
+
+                return Json(new { Status = "200" }, JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(new { Status = "404" }, JsonRequestBehavior.AllowGet);
+        }
+
+
         public string GetIPAddress()
         {
             System.Web.HttpContext context = System.Web.HttpContext.Current;
@@ -167,5 +192,8 @@ namespace PsychologyCenter.Controllers
             string ip = context.Request.ServerVariables["REMOTE_ADDR"];
             return ip;
         }
+
+
+        
     }
 }
