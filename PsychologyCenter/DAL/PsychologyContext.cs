@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using PsychologyCenter.Models;
+using PsychologyCenter.Areas.Manage.Models;
+
+
 namespace PsychologyCenter.DAL
 {
     public class PsychologyContext:DbContext
@@ -34,6 +37,10 @@ namespace PsychologyCenter.DAL
         public DbSet<ReadCount> ReadCounts { get; set; }
         #endregion
 
+        #region AdminPanel
 
+        public DbSet<Admin> Admins { get; set; }
+
+        #endregion
     }
 }

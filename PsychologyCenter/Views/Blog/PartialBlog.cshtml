@@ -20,7 +20,7 @@
             <div class="col-md-12 p-0">
                 <div class="entry-content pl-50 p-20 pt-30 pr-20">
                     <h5 class="entry-title pt-0"><a href="@Url.Action("read","blog", new {Slug= blog.Slug}) ">@blog.Title</a></h5>
-                    <p>@blog.MinAbout</p>
+                    <p>@Html.Raw(blog.MinAbout)</p>
                     <div class="entry-meta pull-left flip mt-10">
                         <input type="hidden" class="BlogID" value="@blog.Id" />
                         <ul class="list-inline">

@@ -607,7 +607,7 @@
                         <div class="col-md-4">
                             <h3 class="text-gray-silver font-playfair mt-10 mt-sm-30 mb-0">About</h3>
                             <h1 class="text-gray font-playfair mt-0">Günel Qurbanova </h1>
-                            <p class="mt-20">@Model.About.Text</p>
+                            <p class="mt-20">@Html.Raw(Model.About.Text)</p>
                             @*<p class="mt-20"><img src="~/Public/images/signature.png" alt=""></p>*@
                         </div>
                         <div class="col-md-4">
@@ -817,7 +817,7 @@
                                                 <div class="entry-content pl-50 p-20 pt-30 pr-20">
 
                                                     <h5 class="entry-title pt-0"><a href="#">@news.Title</a></h5>
-                                                    <p>@news.MinAbout</p>
+                                                    <p>@Html.Raw(news.MinAbout)</p>
                                                     <div class="entry-meta pull-left flip mt-10">
 
                                                         <ul class="list-inline">

@@ -152,16 +152,16 @@
                                         </div>
                                     </div>
                                     <div class="entry-title pt-0">
-                                        <h3><a href="#">@Model.Blog.Title</a></h3>
+                                        <h3>@Model.Blog.Title</a></h3>
                                     </div>
                                     <div class="entry-meta">
                                         <ul class="list-inline">
                                             <li>Tarix:  <span class="text-theme-colored">@Model.Blog.Date.ToString("dd/MM/yyyy")</span></li>
-                                            @*<li>By: <span class="text-theme-colored">Admin</span></li>*@
+                                            <li>Yazan: <span class="text-theme-colored">Günel Qurbanova</span></li>
                                         </ul>
                                     </div>
                                     <div class="entry-content mt-10">
-                                        <p class="mb-15">@Model.Blog.Text</p>
+                                        <p class="mb-15">@Html.Raw(Model.Blog.Text)</p>
                                         <div class="mt-30 mb-0">
                                             <h5 class="pull-left mt-10 mr-20 text-theme-colored">Paylaş:</h5>
                                             <ul class="social-icons icon-circled m-0">

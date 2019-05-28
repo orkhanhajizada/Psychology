@@ -1,0 +1,122 @@
+﻿@model PsychologyCenter.Models.Blog
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<div class="card shadow mb-4">
+    <div class="card-body">
+
+        @using (Html.BeginForm("edit", "blogs", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Title, "Başlıq", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @data_type = "slug-source" } })
+                    @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Slug, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @class = "form-control", @data_type = "slug-input" } })
+                    @Html.ValidationMessageFor(model => model.Slug, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Text, "Mətn", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+                    <script>
+                        ClassicEditor
+                            .create(document.querySelector('#Text'))
+                            .then(editor => {
+                                console.log(editor);
+                            })
+                            .catch(error => {
+                                console.error(error);
+                            });
+                    </script>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.MinAbout, "Qısa məlumat", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.MinAbout, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.MinAbout, "", new { @class = "text-danger" })
+                    <script>
+                        ClassicEditor
+                            .create(document.querySelector('#MinAbout'))
+                            .then(editor => {
+                                console.log(editor);
+                            })
+                            .catch(error => {
+                                console.error(error);
+                            });
+                    </script>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Photo, "Əsas şəkil", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Photo, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
+                    @Html.ValidationMessageFor(model => model.Photo, "", new { @class = "text-danger" })
+                    <hr />
+                    @Html.HiddenFor(model => model.Photo)
+                    <img src="~/Uploads/@Model.Photo" width="150" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TitlePhoto, "Başlıq şəkli", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TitlePhoto, new { htmlAttributes = new { @class = "form-control", @type = "file" } })
+                    @Html.ValidationMessageFor(model => model.TitlePhoto, "", new { @class = "text-danger" })
+                    <hr />
+                    @Html.HiddenFor(model => model.TitlePhoto)
+                    <img src="~/Uploads/@Model.TitlePhoto" width="150" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Date, "Tarix", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+                    @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BlogCategoryId, "Kategoriya", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("BlogCategoryId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.BlogCategoryId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+        }
+
+        <div>
+            @Html.ActionLink("Geriyə qayıt", "Index")
+        </div>
+    </div>
+</div>
