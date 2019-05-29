@@ -125,6 +125,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Manage\Controllers\AboutsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\AdminsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\BlogCategoriesController.cs" />
     <Compile Include="Areas\Manage\Controllers\BlogsController.cs" />
     <Compile Include="Areas\Manage\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Manage\Controllers\LoginController.cs" />
@@ -2687,6 +2689,14 @@
     <Content Include="Areas\Manage\Views\Blogs\Index.cshtml" />
     <Content Include="Areas\Manage\Views\Abouts\Edit.cshtml" />
     <Content Include="Areas\Manage\Views\Abouts\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Admins\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Admins\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Admins\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Admins\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogCategories\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogCategories\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogCategories\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\BlogCategories\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Blog\PartialBlog.cshtml" />
   </ItemGroup>
