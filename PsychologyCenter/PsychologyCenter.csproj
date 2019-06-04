@@ -137,6 +137,8 @@
     <Compile Include="Areas\Manage\Controllers\LoginController.cs" />
     <Compile Include="Areas\Manage\Controllers\OpeningHoursController.cs" />
     <Compile Include="Areas\Manage\Controllers\PhrasesController.cs" />
+    <Compile Include="Areas\Manage\Controllers\ServicesController.cs" />
+    <Compile Include="Areas\Manage\Controllers\SettingsController.cs" />
     <Compile Include="Areas\Manage\Filters\Auth.cs" />
     <Compile Include="Areas\Manage\Helpers\FileManager.cs" />
     <Compile Include="Areas\Manage\ManageAreaRegistration.cs" />
@@ -219,6 +221,10 @@
     <Compile Include="Migrations\201905282105312_AddAdmins.cs" />
     <Compile Include="Migrations\201905282105312_AddAdmins.Designer.cs">
       <DependentUpon>201905282105312_AddAdmins.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906041627485_DeleteLatLng.cs" />
+    <Compile Include="Migrations\201906041627485_DeleteLatLng.Designer.cs">
+      <DependentUpon>201906041627485_DeleteLatLng.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
@@ -1963,6 +1969,7 @@
     <Content Include="Public\images\blog1.Jpeg" />
     <Content Include="Public\images\blog2.jpg" />
     <Content Include="Public\images\doctor.png" />
+    <Content Include="Uploads\logo-wide.png" />
     <Content Include="Uploads\p1.jpg" />
     <Content Include="Uploads\p2.jpg" />
     <Content Include="Uploads\p3.jpg" />
@@ -2731,6 +2738,12 @@
     <Content Include="Areas\Manage\Views\Phrases\Delete.cshtml" />
     <Content Include="Areas\Manage\Views\Phrases\Edit.cshtml" />
     <Content Include="Areas\Manage\Views\Phrases\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Services\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Services\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Services\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Services\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Settings\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Settings\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Blog\PartialBlog.cshtml" />
   </ItemGroup>
@@ -2788,6 +2801,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201905282105312_AddAdmins.resx">
       <DependentUpon>201905282105312_AddAdmins.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906041627485_DeleteLatLng.resx">
+      <DependentUpon>201906041627485_DeleteLatLng.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
