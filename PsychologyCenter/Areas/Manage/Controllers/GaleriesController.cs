@@ -12,135 +12,131 @@ using PsychologyCenter.Models;
 
 namespace PsychologyCenter.Areas.Manage.Controllers
 {
-    public class BlogsController : Controller
+    public class GaleriesController : Controller
     {
         private PsychologyContext db = new PsychologyContext();
 
-        // GET: Manage/Blogs
+        // GET: Manage/Galeries
         public ActionResult Index()
         {
-            var blogs = db.Blogs.Include(b => b.BlogCategory);
-            return View(blogs.ToList());
+            var galeries = db.Galeries.Include(g => g.GaleryCategory);
+            return View(galeries.ToList());
         }
-
         
 
-        // GET: Manage/Blogs/Create
+        // GET: Manage/Galeries/Create
         public ActionResult Create()
         {
-            ViewBag.BlogCategoryId = new SelectList(db.BlogCategories, "Id", "Name");
+            ViewBag.GaleryCategoryId = new SelectList(db.GaleryCategories, "Id", "Name");
             return View();
         }
 
-        // POST: Manage/Blogs/Create
+        // POST: Manage/Galeries/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ValidateInput(false)]
-        public ActionResult Create([Bind(Include = "Id,Slug,Title,Text,MinAbout,Photo,TitlePhoto,Date,BlogCategoryId")] Blog blog, HttpPostedFileBase Photo, HttpPostedFileBase TitlePhoto)
+        public ActionResult Create([Bind(Include = "Id,Photo,BigPhoto,GaleryCategoryId")] Galery galery,  HttpPostedFileBase Photo, HttpPostedFileBase BigPhoto)
         {
             if (Photo == null)
             {
                 ModelState.AddModelError("Photo", "Please Select file");
             }
-            if (TitlePhoto == null)
+            if (BigPhoto == null)
             {
                 ModelState.AddModelError("Title Photo", "Please Select file");
             }
             else
             {
-                blog.Photo = FileManager.Upload(Photo);
-                blog.TitlePhoto = FileManager.Upload(TitlePhoto);
+                galery.Photo = FileManager.Upload(Photo);
+                galery.BigPhoto = FileManager.Upload(BigPhoto);
             }
 
             if (ModelState.IsValid)
             {
-                db.Blogs.Add(blog);
+                db.Galeries.Add(galery);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.BlogCategoryId = new SelectList(db.BlogCategories, "Id", "Name", blog.BlogCategoryId);
-            return View(blog);
+            ViewBag.GaleryCategoryId = new SelectList(db.GaleryCategories, "Id", "Name", galery.GaleryCategoryId);
+            return View(galery);
         }
 
-        // GET: Manage/Blogs/Edit/5
+        // GET: Manage/Galeries/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog = db.Blogs.Find(id);
-            if (blog == null)
+            Galery galery = db.Galeries.Find(id);
+            if (galery == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.BlogCategoryId = new SelectList(db.BlogCategories, "Id", "Name", blog.BlogCategoryId);
-            return View(blog);
+            ViewBag.GaleryCategoryId = new SelectList(db.GaleryCategories, "Id", "Name", galery.GaleryCategoryId);
+            return View(galery);
         }
 
-        // POST: Manage/Blogs/Edit/5
+        // POST: Manage/Galeries/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [ValidateInput(false)]
-        public ActionResult Edit([Bind(Include = "Id,Slug,Title,Text,MinAbout,Photo,TitlePhoto,Date,BlogCategoryId")] Blog blog, HttpPostedFileBase Photo, HttpPostedFileBase TitlePhoto)
+        public ActionResult Edit([Bind(Include = "Id,Photo,BigPhoto,GaleryCategoryId")] Galery galery, HttpPostedFileBase Photo, HttpPostedFileBase BigPhoto)
         {
-            db.Entry(blog).State = EntityState.Modified;
+            db.Entry(galery).State = EntityState.Modified;
 
             if (Photo == null)
             {
-                db.Entry(blog).Property(a => a.Photo).IsModified = false;
+                db.Entry(galery).Property(a => a.Photo).IsModified = false;
             }
-            if (TitlePhoto == null)
+            if (BigPhoto == null)
             {
-                db.Entry(blog).Property(b => b.TitlePhoto).IsModified = false;
+                db.Entry(galery).Property(b => b.BigPhoto).IsModified = false;
             }
             else
             {
-                FileManager.Delete(blog.Photo);
-                FileManager.Delete(blog.TitlePhoto);
+                FileManager.Delete(galery.Photo);
+                FileManager.Delete(galery.BigPhoto);
 
-                blog.Photo = FileManager.Upload(Photo);
-                blog.TitlePhoto = FileManager.Upload(TitlePhoto);
+                galery.Photo = FileManager.Upload(Photo);
+                galery.BigPhoto = FileManager.Upload(BigPhoto);
             }
-
 
             if (ModelState.IsValid)
             {
-                db.Entry(blog).State = EntityState.Modified;
+                db.Entry(galery).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }   
-            ViewBag.BlogCategoryId = new SelectList(db.BlogCategories, "Id", "Name", blog.BlogCategoryId);
-            return View(blog);
+            }
+            ViewBag.GaleryCategoryId = new SelectList(db.GaleryCategories, "Id", "Name", galery.GaleryCategoryId);
+            return View(galery);
         }
 
-        // GET: Manage/Blogs/Delete/5
+        // GET: Manage/Galeries/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Blog blog = db.Blogs.Find(id);
-            if (blog == null)
+            Galery galery = db.Galeries.Find(id);
+            if (galery == null)
             {
                 return HttpNotFound();
             }
-            return View(blog);
+            return View(galery);
         }
 
-        // POST: Manage/Blogs/Delete/5
+        // POST: Manage/Galeries/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Blog blog = db.Blogs.Find(id);
-            db.Blogs.Remove(blog);
+            Galery galery = db.Galeries.Find(id);
+            db.Galeries.Remove(galery);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

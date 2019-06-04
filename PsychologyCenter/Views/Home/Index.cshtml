@@ -8,6 +8,9 @@
 <html dir="ltr" lang="en">
 <head>
 
+
+
+
     <!-- Meta Tags -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
@@ -24,6 +27,8 @@
     <link href="~/Public/images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
     <link href="~/Public/images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
     <link href="~/Public/images/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
+
+
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -47,7 +52,8 @@
     <link href="~/Public/js/revolution-slider/css/settings.css" rel="stylesheet" type="text/css" />
     <link href="~/Public/js/revolution-slider/css/layers.css" rel="stylesheet" type="text/css" />
     <link href="~/Public/js/revolution-slider/css/navigation.css" rel="stylesheet" type="text/css" />
-
+    <!-- FONTS-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,700i,900&display=swap" rel="stylesheet">
     <!-- CSS | Theme Color -->
     <link href="~/Public/css/colors/theme-skin-blue.css" rel="stylesheet" type="text/css">
 
@@ -96,7 +102,7 @@
                                 <img src="~/Public/images/logo-wide.png" alt="">
                             </a>
                             <ul class="menuzord-menu onepage-nav">
-                                <li class="active"><a href="#home">Home</a> </li>
+                                <li class="active"><a href="#home">Ana səhifə</a> </li>
                                 <li><a href="#about">About</a></li>
                                 <li><a href="#services">Services</a></li>
                                 <li><a href="#specialities">Specialities</a></li>
@@ -698,10 +704,10 @@
                                 @foreach (var choose in Model.ChooseUs)
                                 {
                                     <div class="panel">
-                                        <div class="panel-title"> <a href="#@choose.Id" data-toggle="collapse" data-parent="#accordion2"> <span class="open-sub"></span> @choose.Title </a> </div>
+                                        <div class="panel-title"> <a href="#@choose.Id" data-toggle="collapse" data-parent="#accordion2"> <span class="open-sub"></span>@Html.Raw(choose.Title) </a> </div>
                                         <div class="panel-collapse collapse" id="@choose.Id">
                                             <div class="panel-content">
-                                                <p>@choose.Text</p>
+                                                <p>@Html.Raw(choose.Text)</p>
                                             </div>
                                         </div>
                                     </div>
@@ -946,10 +952,10 @@
                             @foreach (var faq in Model.Faqs)
                             {
                                 <div class="panel">
-                                    <div class="panel-title"> <a data-parent="#accordion1" data-toggle="collapse" href="#accordion_@faq.Id" class="" aria-expanded="true"> <span class="open-sub"></span> <strong>@faq.Question</strong></a> </div>
+                                    <div class="panel-title"> <a data-parent="#accordion1" data-toggle="collapse" href="#accordion_@faq.Id" class="" aria-expanded="true"> <span class="open-sub"></span> <strong>@Html.Raw(faq.Question)</strong></a> </div>
                                     <div id="accordion_@faq.Id" class="panel-collapse collapse " role="tablist" aria-expanded="true">
                                         <div class="panel-content">
-                                            <p>@faq.Answer</p>
+                                            <p>@Html.Raw(faq.Answer)</p>
                                         </div>
                                     </div>
                                 </div>

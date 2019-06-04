@@ -88,6 +88,10 @@ This file contains the common styles of this theme.
  * Typography.less
  * -----------------------------------------------
 */
+body {
+    font-family: "Roboto", sans-serif !important;
+}
+
 ::selection {
   background: #333333;
   color: #fff;
@@ -121,11 +125,21 @@ a {
   color: #999999;
   text-decoration: none;
 }
-a:hover,
-a:focus {
-  color: #737373;
-  text-decoration: none;
+    a:hover,
+    a:focus {
+        color: #737373;
+        text-decoration: none;
+        
+    }
+
+#color {
+    color: #D479AC;
 }
+
+        #color:hover {
+            color: #8D5173 !important;
+        transition: all 0.3s ease-in-out;
+        }
 a img {
   border: none;
 }
@@ -172,7 +186,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: 'Playfair Display', serif;
+ 
   font-weight: 600;
   line-height: 1.42857143;
   color: #333333;
@@ -230,7 +244,7 @@ h6,
 h5,
 h6,
 p {
-  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Open Sans', sans-serif;*/
 }
 p {
   line-height: 1.7;
@@ -250,7 +264,7 @@ form {
   margin-bottom: 9px;
 }
 /* -------- Custom Font Family ---------- */
-.font-raleway {
+/*.font-raleway {
   font-family: 'Raleway', sans-serif;
 }
 .font-opensans {
@@ -258,16 +272,19 @@ form {
 }
 .font-Playfair {
   font-family: 'Playfair Display', serif;
-}
+}*/
 /* breadcrumb */
 .breadcrumb {
   background-color: transparent;
   padding-left: 0;
+  text-align: right;
 }
 .breadcrumb > li + li::before {
-  content: "\f22d";
-  font-family: fontawesome;
-  font-size: 9px;
+    content: "/";
+    font-family: fontawesome;
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
 }
 .breadcrumb li.active {
   color: #111111;
@@ -277,10 +294,14 @@ form {
 }
     .breadcrumb.white li a {
         color: #8D5173;
-        font-size: 25px;
+        font-size: 20px;
     }
+        .breadcrumb.white li a:hover {
+            color: #D479AC;
+            transition: all 0.3s ease-in-out;
+        }
 @media only screen and (min-width: 768px) {
-  .breadcrumb.text-right {
+    .breadcrumb.text-right {
     text-align: right !important;
   }
 }
@@ -696,7 +717,9 @@ footer.bg-deep {
   font-size: 27px !important;
 }
 .font-28 {
-  font-size: 28px !important;
+    font-size: 40px !important;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
 }
 .font-29 {
   font-size: 29px !important;
@@ -1355,53 +1378,88 @@ section > .container-fluid {
   }
 }
 /* -------- Responsive Classes ---------- */
+
+@media only screen and (max-width: 768px) {
+    .bread_ol, 
+    .meqale {
+        text-align:center;
+    }
+
+    .bread_ol li a {
+        font-size: 20px !important;
+    }
+}
 /* Small Devices, Tablets */
 @media only screen and (max-width: 991px) {
-  .sm-display-block {
-    display: block !important;
-  }
-  .sm-text-center {
-    text-align: center !important;
-  }
-  .sm-text-right {
-    text-align: right !important;
-  }
-  .sm-text-left {
-    text-align: left !important;
-  }
-  .sm-pull-none {
-    float: none !important;
-  }
-  .sm-pull-left {
-    float: left !important;
-  }
-  .sm-pull-right {
-    float: right !important;
-  }
-  .sm-fullwidth {
-    width: 100%;
-  }
-  .sm-height-auto {
-    min-height: auto !important;
-  }
-  .sm-hide-bg-img {
-    background: none !important;
-  }
-  .maxwidth400 {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 400px;
-  }
-  .maxwidth500 {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 500px;
-  }
-  .maxwidth600 {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 600px;
-  }
+    .sm-display-block {
+        display: block !important;
+    }
+
+    .sm-text-center {
+        text-align: center !important;
+    }
+
+    .sm-text-right {
+        text-align: right !important;
+    }
+
+    .sm-text-left {
+        text-align: left !important;
+    }
+
+    .sm-pull-none {
+        float: none !important;
+    }
+
+    .sm-pull-left {
+        float: left !important;
+    }
+
+    .sm-pull-right {
+        float: right !important;
+    }
+
+    .sm-fullwidth {
+        width: 100%;
+    }
+
+    .sm-height-auto {
+        min-height: auto !important;
+    }
+
+    .sm-hide-bg-img {
+        background: none !important;
+    }
+
+    .maxwidth400 {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 400px;
+    }
+
+    .maxwidth500 {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 500px;
+    }
+
+    .maxwidth600 {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 600px;
+    }
+
+    .bread .title {
+        text-align: center;
+    }
+
+    .breadcrumb.white li a {
+        font-size: 15px;
+    }
+
+        .breadcrumb.white li a:before {
+            font-size: 20px;
+        }
 }
 /* Small Devices, Tablets */
 @media only screen and (max-width: 767px) {
@@ -2022,7 +2080,7 @@ section > .container-fluid {
 .menu-full-page #fullpage-nav li a {
   color: #111;
   font-size: 18px;
-  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Open Sans', sans-serif;*/
   text-decoration: none;
   font-weight: 400;
   text-transform: uppercase;
@@ -3900,7 +3958,7 @@ textarea {
   background: none repeat scroll 0 0 transparent;
   border: 1px solid #ccc;
   border-radius: 3px;
-  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Open Sans', sans-serif;*/
   height: 18px;
   left: 2.8571em;
   line-height: 1;
@@ -4252,7 +4310,7 @@ table.no-border td {
   padding-bottom: 30px;
 }
 .single-post article .entry-title {
-  font-family: "Open Sans", sans-serif;
+  /*font-family: "Open Sans", sans-serif;*/
   padding: 15px 0 0;
   text-transform: capitalize;
 }
@@ -6281,11 +6339,11 @@ blockquote p {
 }
 .services-tab .tab-content .service-content .sub-title {
   color: #c8c8c8;
-  font-family: 'Playfair Display', sans-serif;
+  /*font-family: 'Playfair Display', sans-serif;*/
 }
 .services-tab .tab-content .service-content .title {
   color: #555555;
-  font-family: 'Playfair Display', sans-serif;
+  /*font-family: 'Playfair Display', sans-serif;*/
 }
 @media only screen and (max-width: 1199px) {
   .services-tab .service-content {

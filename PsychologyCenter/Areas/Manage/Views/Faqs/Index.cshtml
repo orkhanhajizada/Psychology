@@ -1,0 +1,44 @@
+﻿@model IEnumerable<PsychologyCenter.Models.Faq>
+
+@{
+    ViewBag.Title = "Tezt-tez verilən suallar";
+}
+<p>
+    @Html.ActionLink("Əlavə et", "Create")
+</p>
+
+
+        <table class="table">
+
+            <tr >
+                <th>
+                    @Html.DisplayNameFor(model => model.Question)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Answer)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.Raw(item.Question)
+                    </td>
+                    <td>
+                        @Html.Raw(item.Answer)
+                    </td>
+                    <td>
+                        <a class="mr-2" href="@Url.Action("edit", new { id=item.Id })">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a class="text-danger" href="@Url.Action("delete", new { id=item.Id })">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+
+                </tr>
+            }
+
+        </table>

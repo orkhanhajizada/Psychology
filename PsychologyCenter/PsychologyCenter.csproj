@@ -128,7 +128,11 @@
     <Compile Include="Areas\Manage\Controllers\AdminsController.cs" />
     <Compile Include="Areas\Manage\Controllers\BlogCategoriesController.cs" />
     <Compile Include="Areas\Manage\Controllers\BlogsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\ChooseUsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\CommentsController.cs" />
     <Compile Include="Areas\Manage\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Manage\Controllers\FaqsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\GaleriesController.cs" />
     <Compile Include="Areas\Manage\Controllers\LoginController.cs" />
     <Compile Include="Areas\Manage\Filters\Auth.cs" />
     <Compile Include="Areas\Manage\Helpers\FileManager.cs" />
@@ -2697,6 +2701,21 @@
     <Content Include="Areas\Manage\Views\BlogCategories\Delete.cshtml" />
     <Content Include="Areas\Manage\Views\BlogCategories\Edit.cshtml" />
     <Content Include="Areas\Manage\Views\BlogCategories\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\ChooseUs\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\ChooseUs\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\ChooseUs\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\ChooseUs\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Comments\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Comments\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Comments\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Faqs\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Faqs\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Faqs\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Faqs\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Galeries\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Galeries\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Galeries\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Galeries\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Blog\PartialBlog.cshtml" />
   </ItemGroup>
