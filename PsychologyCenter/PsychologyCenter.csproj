@@ -133,7 +133,10 @@
     <Compile Include="Areas\Manage\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Manage\Controllers\FaqsController.cs" />
     <Compile Include="Areas\Manage\Controllers\GaleriesController.cs" />
+    <Compile Include="Areas\Manage\Controllers\GaleryCategoriesController.cs" />
     <Compile Include="Areas\Manage\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Manage\Controllers\OpeningHoursController.cs" />
+    <Compile Include="Areas\Manage\Controllers\PhrasesController.cs" />
     <Compile Include="Areas\Manage\Filters\Auth.cs" />
     <Compile Include="Areas\Manage\Helpers\FileManager.cs" />
     <Compile Include="Areas\Manage\ManageAreaRegistration.cs" />
@@ -2716,6 +2719,18 @@
     <Content Include="Areas\Manage\Views\Galeries\Delete.cshtml" />
     <Content Include="Areas\Manage\Views\Galeries\Edit.cshtml" />
     <Content Include="Areas\Manage\Views\Galeries\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\GaleryCategories\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\GaleryCategories\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\GaleryCategories\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\GaleryCategories\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\OpeningHours\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\OpeningHours\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\OpeningHours\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\OpeningHours\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Phrases\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Phrases\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Phrases\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Phrases\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Blog\PartialBlog.cshtml" />
   </ItemGroup>

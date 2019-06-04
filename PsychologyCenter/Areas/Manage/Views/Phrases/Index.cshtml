@@ -1,0 +1,52 @@
+﻿@model IEnumerable<PsychologyCenter.Models.Phrase>
+
+@{
+    ViewBag.Title = "Frazalar";
+}
+
+<p>
+    @Html.ActionLink("Əlavə et", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Adı
+        </th>
+        <th>
+            Fraza
+        </th>
+        <th>
+            Şəkil
+        </th>
+        <th>
+           Sıra
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Text)
+        </td>
+        <td>
+            <img src="~/Uploads/@item.Photo" width="100" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderBy)
+        </td>
+        <td>
+            <a class="mr-2" href="@Url.Action("edit", new { id=item.Id })">
+                <i class="fas fa-edit"></i>
+            </a>
+            <a class="text-danger" href="@Url.Action("delete", new { id=item.Id })">
+                <i class="fas fa-trash"></i>
+            </a>
+        </td>
+    </tr>
+}
+
+</table>

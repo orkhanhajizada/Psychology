@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PsychologyCenter.Models.OpeningHour>
+
+@{
+    ViewBag.Title = "İş saatları";
+}
+
+
+<p>
+    @Html.ActionLink("Əlavə et", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Gün
+        </th>
+        <th>
+           Saat
+        </th>
+        <th>
+           Sıra
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Day)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OpenHour)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrderBy)
+        </td>
+        <td>
+            <a class="mr-2" href="@Url.Action("edit", new { id=item.Id })">
+                <i class="fas fa-edit"></i>
+            </a>
+            <a class="text-danger" href="@Url.Action("delete", new { id=item.Id })">
+                <i class="fas fa-trash"></i>
+            </a>
+        </td>
+    </tr>
+}
+
+</table>
