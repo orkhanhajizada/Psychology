@@ -6,11 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PsychologyCenter.Areas.Manage.Filters;
 using PsychologyCenter.DAL;
 using PsychologyCenter.Models;
 
 namespace PsychologyCenter.Areas.Manage.Controllers
 {
+    [Auth]
     public class CommentsController : Controller
     {
         private PsychologyContext db = new PsychologyContext();

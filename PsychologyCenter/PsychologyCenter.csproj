@@ -139,6 +139,9 @@
     <Compile Include="Areas\Manage\Controllers\PhrasesController.cs" />
     <Compile Include="Areas\Manage\Controllers\ServicesController.cs" />
     <Compile Include="Areas\Manage\Controllers\SettingsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\SlidersController.cs" />
+    <Compile Include="Areas\Manage\Controllers\SpecialistsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\TimelinesController.cs" />
     <Compile Include="Areas\Manage\Filters\Auth.cs" />
     <Compile Include="Areas\Manage\Helpers\FileManager.cs" />
     <Compile Include="Areas\Manage\ManageAreaRegistration.cs" />
@@ -225,6 +228,10 @@
     <Compile Include="Migrations\201906041627485_DeleteLatLng.cs" />
     <Compile Include="Migrations\201906041627485_DeleteLatLng.Designer.cs">
       <DependentUpon>201906041627485_DeleteLatLng.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906050712178_SomeStringLengthChanges.cs" />
+    <Compile Include="Migrations\201906050712178_SomeStringLengthChanges.Designer.cs">
+      <DependentUpon>201906050712178_SomeStringLengthChanges.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
@@ -2744,6 +2751,18 @@
     <Content Include="Areas\Manage\Views\Services\Index.cshtml" />
     <Content Include="Areas\Manage\Views\Settings\Edit.cshtml" />
     <Content Include="Areas\Manage\Views\Settings\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Sliders\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Sliders\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Sliders\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Sliders\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Specialists\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Specialists\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Specialists\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Specialists\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Timelines\Create.cshtml" />
+    <Content Include="Areas\Manage\Views\Timelines\Delete.cshtml" />
+    <Content Include="Areas\Manage\Views\Timelines\Edit.cshtml" />
+    <Content Include="Areas\Manage\Views\Timelines\Index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Views\Blog\PartialBlog.cshtml" />
   </ItemGroup>
@@ -2804,6 +2823,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906041627485_DeleteLatLng.resx">
       <DependentUpon>201906041627485_DeleteLatLng.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906050712178_SomeStringLengthChanges.resx">
+      <DependentUpon>201906050712178_SomeStringLengthChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

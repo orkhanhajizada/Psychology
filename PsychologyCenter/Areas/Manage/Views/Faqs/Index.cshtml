@@ -12,10 +12,7 @@
 
             <tr >
                 <th>
-                    @Html.DisplayNameFor(model => model.Question)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Answer)
+                    Sual
                 </th>
                 <th></th>
             </tr>
@@ -25,9 +22,6 @@
                 <tr>
                     <td>
                         @Html.Raw(item.Question)
-                    </td>
-                    <td>
-                        @Html.Raw(item.Answer)
                     </td>
                     <td>
                         <a class="mr-2" href="@Url.Action("edit", new { id=item.Id })">

@@ -6,9 +6,11 @@ using System.Web.Mvc;
 using PsychologyCenter.DAL;
 using PsychologyCenter.Areas.Manage.Models;
 using System.Web.Helpers;
+using PsychologyCenter.Areas.Manage.Filters;
 
 namespace PsychologyCenter.Areas.Manage.Controllers
 {
+    
     public class LoginController : Controller
     {
         private readonly PsychologyContext _context = new PsychologyContext();

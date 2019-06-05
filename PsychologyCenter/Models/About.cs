@@ -12,7 +12,7 @@ namespace PsychologyCenter.Models
     {
         public int Id { get; set; }
 
-        [Required, MinLength(250)]
+        [Required, MinLength(100)]
         [Column(TypeName = "ntext")]
         public string Text { get; set; }
 

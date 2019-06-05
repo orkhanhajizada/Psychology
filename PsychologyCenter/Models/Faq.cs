@@ -15,7 +15,8 @@ namespace PsychologyCenter.Models
         [StringLength(500)]
         public string Question { get; set; }
 
-        [Required, MinLength(250)]
+        [Required]
+        [StringLength(500)]
         [Column(TypeName = "ntext")]
         public string Answer { get; set; }
     }

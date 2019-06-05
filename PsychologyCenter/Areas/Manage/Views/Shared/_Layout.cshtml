@@ -20,11 +20,11 @@
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("index","dashboard")">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Promed</div>
+                <div class="sidebar-brand-text mx-3">Dünya Psixologiya Mərkəzi</div>
             </a>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -33,31 +33,32 @@
             <hr class="sidebar-divider">
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
             </div>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+                    <span>Səhifələr</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="@Url.Action("index","login")">Login</a>
-                        <a class="collapse-item" href="@Url.Action("index","admins")">Register</a>
-                        <a class="collapse-item" href="@Url.Action("index","aboutelement")">About Elements</a>
-                        <a class="collapse-item" href="@Url.Action("index","abouts")">About</a>
-                        <a class="collapse-item" href="@Url.Action("index","blogs")">Blog</a>
-                        <a class="collapse-item" href="@Url.Action("index","categories")">Category</a>
-                        <a class="collapse-item" href="@Url.Action("index","departments")">Departments</a>
-                        <a class="collapse-item" href="@Url.Action("index","doctor")">Doctors</a>
-                        <a class="collapse-item" href="@Url.Action("index","facts")">Facts</a>
-                        <a class="collapse-item" href="@Url.Action("index","feedbacks")">Feedbacks</a>
-                        <a class="collapse-item" href="@Url.Action("index","openinghours")">Opening Hours</a>
-                        <a class="collapse-item" href="@Url.Action("index","Settings")">Settings</a>
-                        <a class="collapse-item" href="@Url.Action("index","sliders")">Sliders</a>
-                        <a class="collapse-item" href="@Url.Action("index","specialities")">Specialities</a>
-                        <a class="collapse-item" href="@Url.Action("index","subsliders")">Subsliders</a>
+                        <a class="collapse-item" href="@Url.Action("index","dashboard")">Ana səhifə</a>
+                        <a class="collapse-item" href="@Url.Action("index","admins")">Admin</a>
+                        <a class="collapse-item" href="@Url.Action("index","chooseus")">Niyə biz</a>
+                        <a class="collapse-item" href="@Url.Action("index","abouts")">Haqqında</a>
+                        <a class="collapse-item" href="@Url.Action("index","blogs")">Məqalələr</a>
+                        <a class="collapse-item" href="@Url.Action("index","blogcategories")">Məqalə kategoriyaları</a>
+                        <a class="collapse-item" href="@Url.Action("index","comments")">Rəylər</a>
+                        <a class="collapse-item" href="@Url.Action("index","faqs")">Tez-tez verilən suallar</a>
+                        <a class="collapse-item" href="@Url.Action("index","galeries")">Galeriya</a>
+                        <a class="collapse-item" href="@Url.Action("index","galerycategories")">Galeriya kategoriyaları</a>
+                        <a class="collapse-item" href="@Url.Action("index","openinghours")">İş saatları</a>
+                        <a class="collapse-item" href="@Url.Action("index","settings")">Əlaqə</a>
+                        <a class="collapse-item" href="@Url.Action("index","sliders")">Slider</a>
+                        <a class="collapse-item" href="@Url.Action("index","specialists")">Specialists</a>
+                        <a class="collapse-item" href="@Url.Action("index","phrases")">Frazalar</a>
+                        <a class="collapse-item" href="@Url.Action("index","services")">Xidmətlər</a>
+                        <a class="collapse-item" href="@Url.Action("index","timelines")">Timeline</a>
                     </div>
                 </div>
             </li>

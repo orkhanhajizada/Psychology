@@ -12,7 +12,7 @@ namespace PsychologyCenter.Areas.Manage.Filters
         {
             if (HttpContext.Current.Session["AdminLogin"] == null)
             {
-                filterContext.Result = new RedirectResult("~/manage");
+                filterContext.Result = new RedirectResult("~/manage/login");
                 return;
             }
             base.OnActionExecuting(filterContext);

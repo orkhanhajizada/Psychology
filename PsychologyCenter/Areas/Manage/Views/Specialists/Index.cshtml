@@ -1,0 +1,41 @@
+﻿@model IEnumerable<PsychologyCenter.Models.Specialist>
+
+@{
+    ViewBag.Title = "Specialists";
+}
+
+
+<p>
+    @Html.ActionLink("Əlavə et", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Adı
+        </th>
+        <th>
+            Şəkil
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            <img src="~/Uploads/@item.Photo" width="100" />
+        </td>
+        <td>
+            <a class="mr-2" href="@Url.Action("edit", new { id=item.Id })">
+                <i class="fas fa-edit"></i>
+            </a>
+            <a class="text-danger" href="@Url.Action("delete", new { id=item.Id })">
+                <i class="fas fa-trash"></i>
+            </a>
+        </td>
+    </tr>
+}
+
+</table>

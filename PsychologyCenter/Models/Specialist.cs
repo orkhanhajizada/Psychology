@@ -15,7 +15,8 @@ namespace PsychologyCenter.Models
         [StringLength(100)]
         public string Name { get; set; }
 
-        [Required, MinLength(250)]
+        [Required]
+        [StringLength(250)]
         [Column(TypeName = "ntext")]
         public string Text { get; set; }
 
@@ -23,26 +24,26 @@ namespace PsychologyCenter.Models
         [StringLength(250)]
         public string Photo { get; set; }
 
-        [StringLength(250)]
+        [StringLength(100)]
         public string SpecItem1 { get; set; }
 
-        [StringLength(250)]
+        [StringLength(100)]
         public string SpecItem2 { get; set; }
 
-        [StringLength(250)]
+        [StringLength(100)]
         public string SpecItem3 { get; set; }
 
-        [StringLength(250)]
+        [StringLength(100)]
         public string SpecItem4 { get; set; }
 
-        [StringLength(250)]
+        [StringLength(100)]
         public string SpecItem5 { get; set; }
 
-        [StringLength(250)]
+        [StringLength(100)]
         public string SpecItem6 { get; set; }
 
         [Required]
-        [StringLength(250)]
+        [StringLength(100)]
         public string Icon { get; set; }
         
         public string IsActive { get; set; }

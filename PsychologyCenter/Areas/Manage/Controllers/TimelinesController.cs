@@ -5,112 +5,101 @@ using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
-using System.Web.Helpers;
 using System.Web.Mvc;
 using PsychologyCenter.Areas.Manage.Filters;
-using PsychologyCenter.Areas.Manage.Models;
 using PsychologyCenter.DAL;
+using PsychologyCenter.Models;
 
 namespace PsychologyCenter.Areas.Manage.Controllers
 {
-     [Auth]
-    public class AdminsController : Controller
+    [Auth]
+    public class TimelinesController : Controller
     {
         private PsychologyContext db = new PsychologyContext();
 
-        // GET: Manage/Admins
+        // GET: Manage/Timelines
         public ActionResult Index()
         {
-            return View(db.Admins.ToList());
+            return View(db.Timeliness.ToList());
         }
         
 
-        // GET: Manage/Admins/Create
+        // GET: Manage/Timelines/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Manage/Admins/Create
+        // POST: Manage/Timelines/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Fullname,Email,Password")] Admin admin)
+        public ActionResult Create([Bind(Include = "Id,Date,Text,OrderBy")] Timeline timeline)
         {
-            if (db.Admins.FirstOrDefault(a => a.Email == admin.Email) != null)
-            {
-                ModelState.AddModelError("Email", "This Email already use!");
-            }
-
-            admin.Password = Crypto.HashPassword(admin.Password);
-
-
             if (ModelState.IsValid)
             {
-                db.Admins.Add(admin);
+                db.Timeliness.Add(timeline);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(admin);
+            return View(timeline);
         }
 
-        // GET: Manage/Admins/Edit/5
+        // GET: Manage/Timelines/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Admin admin = db.Admins.Find(id);
-            if (admin == null)
+            Timeline timeline = db.Timeliness.Find(id);
+            if (timeline == null)
             {
                 return HttpNotFound();
             }
-            return View(admin);
+            return View(timeline);
         }
 
-        // POST: Manage/Admins/Edit/5
+        // POST: Manage/Timelines/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Fullname,Email,Password")] Admin admin)
+        public ActionResult Edit([Bind(Include = "Id,Date,Text,OrderBy")] Timeline timeline)
         {
-            admin.Password = Crypto.HashPassword("Password");
-
             if (ModelState.IsValid)
             {
-                db.Entry(admin).State = EntityState.Modified;
+                db.Entry(timeline).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(admin);
+            return View(timeline);
         }
 
-        // GET: Manage/Admins/Delete/5
+        // GET: Manage/Timelines/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Admin admin = db.Admins.Find(id);
-            if (admin == null)
+            Timeline timeline = db.Timeliness.Find(id);
+            if (timeline == null)
             {
                 return HttpNotFound();
             }
-            return View(admin);
+            return View(timeline);
         }
 
-        // POST: Manage/Admins/Delete/5
+        // POST: Manage/Timelines/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Admin admin = db.Admins.Find(id);
-            db.Admins.Remove(admin);
+            Timeline timeline = db.Timeliness.Find(id);
+            db.Timeliness.Remove(timeline);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

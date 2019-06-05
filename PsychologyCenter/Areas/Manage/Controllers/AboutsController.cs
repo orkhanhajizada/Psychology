@@ -6,14 +6,17 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PsychologyCenter.Areas.Manage.Filters;
 using PsychologyCenter.Areas.Manage.Helpers;
 using PsychologyCenter.DAL;
 using PsychologyCenter.Models;
 
 namespace PsychologyCenter.Areas.Manage.Controllers
 {
+    [Auth]
     public class AboutsController : Controller
     {
+        
         private PsychologyContext db = new PsychologyContext();
 
         // GET: Manage/Abouts
