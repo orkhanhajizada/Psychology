@@ -4,14 +4,19 @@
     PsychologyCenter.Models.Setting setting = ViewBag.Setting as PsychologyCenter.Models.Setting;
 }
 
+@using System.Globalization
+@{
+    var culture = CultureInfo.CurrentUICulture = new CultureInfo("az-AZ");
+}
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
     <!-- Meta Tags -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta name="description" content="Medinova - Health & Medical HTML Template" />
-    <meta name="keywords" content="building,business,construction,cleaning,transport,workshop" />
+    <meta name="description" content="Dünya Psixologiya Mərkəzi" />
+    <meta name="keywords" content="ushaqlar,saglamlig,psixologiya,ushag psixologu,psixolog" />
     <meta name="author" content="ThemeMascot" />
 
     <!-- Page Title -->
@@ -260,7 +265,6 @@
                                              style="z-index: 7; white-space: nowrap; font-weight:600;">
                                             We Provide Total
                                         </div>
-
                                         <!-- LAYER NR. 2 -->
                                         <div class="tp-caption tp-resizeme text-uppercase text-white font-raleway bg-theme-colored-transparent pl-15 pr-15"
                                              id="rs-2-layer-2"
@@ -285,7 +289,6 @@
                                              style="z-index: 7; white-space: nowrap; font-weight:600;">
                                             Health Care Solution
                                         </div>
-
                                         <!-- LAYER NR. 3 -->
                                         <div class="tp-caption tp-resizeme text-white"
                                              id="rs-2-layer-3"
@@ -310,7 +313,6 @@
                                              style="z-index: 5; white-space: nowrap; letter-spacing:0px; font-weight:400;">
                                             Every day we bring hope to millions of children in the world's<br>  hardest places as a sign of God's unconditional love.
                                         </div>
-
                                         <!-- LAYER NR. 4 -->
                                         <div class="tp-caption tp-resizeme"
                                              id="rs-2-layer-4"
@@ -333,7 +335,6 @@
                                              style="z-index: 5; white-space: nowrap; letter-spacing:1px;">
                                         </div>
                                     </li>
-
                                     <!-- SLIDE 3 -->
                                     <li data-index="rs-3" data-transition="random" data-slotamount="7" data-easein="default" data-easeout="default" data-masterspeed="1000" data-thumb="http://placehold.it/1920x1280" data-rotate="0" data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off" data-title="Intro" data-description="">
                                         <!-- MAIN IMAGE -->
@@ -363,7 +364,6 @@
                                              style="z-index: 7; white-space: nowrap; font-weight:600;">
                                             We Provide Total
                                         </div>
-
                                         <!-- LAYER NR. 2 -->
                                         <div class="tp-caption tp-resizeme text-uppercase text-white font-raleway bg-theme-colored-transparent pl-15 pr-15"
                                              id="rs-3-layer-2"
@@ -388,7 +388,6 @@
                                              style="z-index: 7; white-space: nowrap; font-weight:600;">
                                             Health Care Solution
                                         </div>
-
                                         <!-- LAYER NR. 3 -->
                                         <div class="tp-caption tp-resizeme text-right text-white"
                                              id="rs-3-layer-3"
@@ -413,7 +412,6 @@
                                              style="z-index: 5; white-space: nowrap; letter-spacing:0px; font-weight:400;">
                                             Every day we bring hope to millions of children in the world's<br>  hardest places as a sign of God's unconditional love.
                                         </div>
-
                                         <!-- LAYER NR. 4 -->
                                         <div class="tp-caption tp-resizeme"
                                              id="rs-3-layer-4"
@@ -567,7 +565,7 @@
                                                 <h4 class="text-theme-colored  m-0">Görüş təyin edin!</h4>
                                                 <div class="line-bottom mb-30"></div>
                                                 <!-- Appointment Form -->
-                                                <form name="appointment_form_at_home" class=""  id="ajax-contact">
+                                                <form name="appointment_form_at_home" class="" id="ajax-contact">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <div class="form-group mb-10">
@@ -597,7 +595,7 @@
                                                         <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
                                                         <button type="submit" class="appointment btn btn-dark btn-theme-colored" data-loading-text="Zəhmət olmasa gözləyin...">Göndər</button>
                                                         <button type="reset" class="btn btn-default btn-flat btn-theme-colored">Sıfırla</button>
-                                                    </div>  
+                                                    </div>
                                                 </form>
                                             </div>
                                         </div>
@@ -651,18 +649,15 @@
                                 });
                             </script>
                             <script type="text/javascript">
-
                                 var _gaq = _gaq || [];
                                 _gaq.push(['_setAccount', 'UA-36251023-1']);
                                 _gaq.push(['_setDomainName', 'jqueryscript.net']);
                                 _gaq.push(['_trackPageview']);
-
                                 (function () {
                                     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
                                     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
                                     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
                                 })();
-
                             </script>
                         </div>
                     </div>
@@ -791,7 +786,7 @@
                                 <h2 class="text-uppercase mt-0">Məqalələr</h2>
                                 <div class="title-icon">
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -801,17 +796,17 @@
 
                                 @foreach (var news in Model.Blogs)
                                 {
-                                    
+
                                     <div class="col-xs-12 col-sm-12 col-md-6">
                                         <article class="post style1 clearfix maxwidth500">
                                             <div class="col-md-4 p-0">
                                                 <div class="entry-header">
                                                     <div class="post-thumb">
-                                                        <input type="hidden"  value="@news.Id" />
-                                                        <img src="~/Uploads/@news.Photo" alt="~/Uploads/@news.Photo" class="img-responsive img-fullwidth">
+                                                        <input type="hidden" value="@news.Id" />
+                                                        <img src="~/Uploads/@news.TitlePhoto" alt="@news.MinAbout" class="img-responsive img-fullwidth">
                                                     </div>
                                                     <div class="entry-date entry-date-absolute">
-                                                        @news.Date.Day <span>@news.Date.ToString("MMM")</span>
+                                                        @news.Date.Day <span>@news.Date.ToString("MMMM",culture)</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -839,7 +834,7 @@
                                                                 <i class="fa fa-comments-o mr-5"></i>
                                                                 @if (Model.Comments.Where(w => w.BlogId == news.Id) != null)
                                                                 {
-                                                                    @Model.Comments.Where(w => w.BlogId == news.Id).Count()
+                                                                    @Model.Comments.Where(w => w.BlogId == news.Id && w.IsActive==true).Count()
                                                                 }
                                                                 else
                                                                 {
@@ -848,7 +843,7 @@
 
                                                             </li>
                                                             <li>
-                                                                <i class="fa fa-comments-o mr-5"></i>
+                                                                <i class="far fa-eye mr-5"></i>
                                                                 @if (news.ReadCounts != null)
                                                                 {
                                                                     @news.ReadCounts.Where(r => r.BlogId == news.Id).Count()
@@ -900,11 +895,11 @@
                                     <a href="#@cat.Name.Replace(" ","-").ToLower()" class="" data-filter=".@cat.Name.Replace(" ","-").ToLower()">@cat.Name</a>
                                 }
 
-                                
+
                             </div>
                             <!-- End Works Filter -->
                             <!-- Portfolio Gallery Grid -->
-                            
+
                             <div id="grid" class="gallery-isotope grid-4 gutter clearfix">
                                 <!-- Portfolio Item Start -->
                                 @foreach (var galery in Model.Galeries)
@@ -970,19 +965,19 @@
                             <div class="testimonial style1 testimonial-carousel-2col owl-nav-top">
                                 @foreach (var phrase in Model.Phrases)
                                 {
-                                <div class="item">
-                                    <div class="comment">
-                                        <p>@phrase.Text</p>
-                                    </div>
-                                    <div class="content mt-20">
-                                        <div class="thumb pull-right">
-                                            <img class="img-circle" alt="~/Uploads/@phrase.Photo" src="~/Uploads/@phrase.Photo">
+                                    <div class="item">
+                                        <div class="comment">
+                                            <p>@phrase.Text</p>
                                         </div>
-                                        <div class="patient-details text-right pull-right mr-20 mt-10">
-                                            <h5 class="author">@phrase.Name</h5>
+                                        <div class="content mt-20">
+                                            <div class="thumb pull-right">
+                                                <img class="img-circle" alt="~/Uploads/@phrase.Photo" src="~/Uploads/@phrase.Photo">
+                                            </div>
+                                            <div class="patient-details text-right pull-right mr-20 mt-10">
+                                                <h5 class="author">@phrase.Name</h5>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
                                 }
                             </div>
                         </div>
@@ -998,7 +993,7 @@
                             <h3 class="line-bottom mt-0 mb-30">Əlaqə</h3>
 
                             <!-- Contact Form -->
-                            <form id="ajax-contact" name="ajax-contact" class="" >
+                            <form id="ajax-contact" name="ajax-contact" class="">
 
                                 <div class="row">
                                     <div class="col-sm-6">
@@ -1107,12 +1102,12 @@
                     <div class="widget dark">
                         <h5 class="widget-title line-bottom">Son Məqalələr</h5>
                         <div class="latest-posts">
-                            @foreach (var blogs in Model.Blogs.OrderByDescending(b=>b.Date).Take(3))
+                            @foreach (var blogs in Model.Blogs.OrderByDescending(b => b.Date).Take(3))
                             {
                                 <article class="post media-post clearfix pb-0 mb-10">
-                                    <a class="post-thumb" style="max-width:30%" href="#"><img src="~/Uploads/@blogs.TitlePhoto" alt="~/Uploads/@blogs.TitlePhoto" ></a>
+                                    <a class="post-thumb" style="max-width:30%" href="@Url.Action("read","blog", new {Slug= blogs.Slug})"><img src="~/Uploads/@blogs.TitlePhoto" alt="@blogs.Title"></a>
                                     <div class="post-right">
-                                        <h5 class="post-title mt-0 mb-5"><a href="#">@blogs.Title</a></h5>
+                                        <h5 class="post-title mt-0 mb-5"><a href="@Url.Action("read","blog", new {Slug= blogs.Slug})">@blogs.Title</a></h5>
                                         <p class="post-date mb-0 font-12">@blogs.Date.ToString("dd/MM/yyyy")</p>
                                     </div>
                                 </article>
@@ -1124,8 +1119,8 @@
                     <div class="widget dark">
                         <h5 class="widget-title line-bottom">Əlaqə</h5>
                         <ul class="list list-border">
-                            <li><a >@setting.Phone</li>
-                            <li><a >@setting.Email</a></li>
+                            <li><a>@setting.Phone</li>
+                            <li><a>@setting.Email</a></li>
                             <li><a href="#" class="lineheight-20">@setting.Adress</a></li>
                         </ul>
                     </div>

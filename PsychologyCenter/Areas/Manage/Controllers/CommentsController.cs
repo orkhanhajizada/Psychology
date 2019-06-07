@@ -58,10 +58,12 @@ namespace PsychologyCenter.Areas.Manage.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Comment comment = db.Comments.Find(id);
+         
             if (comment == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.Blog = db.Blogs.FirstOrDefault(f => f.Id == comment.BlogId);
             ViewBag.BlogId = new SelectList(db.Blogs, "Id", "Title", comment.BlogId);
             return View(comment);
         }

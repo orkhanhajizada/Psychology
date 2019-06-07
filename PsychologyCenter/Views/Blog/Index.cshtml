@@ -1,8 +1,12 @@
 ﻿@model PsychologyCenter.VwModels.VwBlog
 
+@using System.Globalization
+
 @{
     PsychologyCenter.Models.Setting setting = ViewBag.Setting as PsychologyCenter.Models.Setting;
+    var culture = CultureInfo.CurrentUICulture = new CultureInfo("az-AZ");
 }
+
 
 
 
@@ -13,12 +17,12 @@
     <!-- Meta Tags -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta name="description" content="Medinova - Health & Medical HTML Template" />
-    <meta name="keywords" content="building,business,construction,cleaning,transport,workshop" />
+    <meta name="description" content="Dünya Psixologiya Mərkəzi" />
+    <meta name="keywords" content="ushaqlar,saglamlig,psixologiya,ushag psixologu,psixolog" />
     <meta name="author" content="ThemeMascot" />
 
     <!-- Page Title -->
-    <title>Medinova - Health & Medical HTML Template</title>
+    <title>Dünya Psixologiya Mərkəzi</title>
 
     <!-- Favicon and Touch Icons -->
     <link href="~/Public/images/favicon.png" rel="shortcut icon" type="image/png">
@@ -28,6 +32,8 @@
     <link href="~/Public/images/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
 
     <!-- Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
     <link href="~/Public/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="~/Public/css/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <link href="~/Public/css/animate.css" rel="stylesheet" type="text/css">
@@ -87,7 +93,7 @@
                                     <li><a href="@Url.Action("index","home")" style="font-size: 25px;">Ana səhifə</a></li>
                                 </ol>
                             </div>
-                        </div>  
+                        </div>
                     </div>
                 </div>
             </section>
@@ -107,9 +113,10 @@
                                     <h5 class="widget-title line-bottom">Kategoriya</h5>
                                     <div class="categories">
                                         <ul class="list list-border angle-double-right">
+                                            <li><a href="@Url.Action("index","blog")">Hamısı</a></li>
                                             @foreach (var cat in Model.Categories)
                                             {
-                                                <li><a href="@Url.Action("index","blog", new {category = cat.Id })">@cat.Name<span>@*@Model.Blogs.Where(b=>b.BlogCategoryId==cat.Id).Count()*@</span></a></li>
+                                                <li><a href="@Url.Action("index","blog", new {category = cat.Id })">@cat.Name</a></li>
                                             }
                                         </ul>
                                     </div>
@@ -144,14 +151,14 @@
                     </div>
                     <div class="col-sm-6 col-md-4">
                         <div class="widget dark">
-                            <h5 class="widget-title line-bottom">Latest News</h5>
+                            <h5 class="widget-title line-bottom">Son Məqalələr</h5>
                             <div class="latest-posts">
                                 @foreach (var blogs in Model.Blogs.OrderByDescending(b => b.Date).Take(3))
                                 {
                                     <article class="post media-post clearfix pb-0 mb-10">
-                                        <a class="post-thumb" style="max-width:30%" href="#"><img src="~/Uploads/@blogs.TitlePhoto" alt="~/Uploads/@blogs.TitlePhoto"></a>
+                                        <a class="post-thumb" style="max-width:30%" href="@Url.Action("read","blog", new {Slug= blogs.Slug})"><img src="~/Uploads/@blogs.TitlePhoto" alt="@blogs.Title"></a>
                                         <div class="post-right">
-                                            <h5 class="post-title mt-0 mb-5"><a href="#">@blogs.Title</a></h5>
+                                            <h5 class="post-title mt-0 mb-5"><a href="@Url.Action("read","blog", new {Slug= blogs.Slug})">@blogs.Title</a></h5>
                                             <p class="post-date mb-0 font-12">@blogs.Date.ToString("dd/MM/yyyy")</p>
                                         </div>
                                     </article>
@@ -161,7 +168,7 @@
                     </div>
                     <div class="col-sm-6 col-md-4">
                         <div class="widget dark">
-                            <h5 class="widget-title line-bottom">Quick Contact</h5>
+                            <h5 class="widget-title line-bottom">Əlaqə</h5>
                             <ul class="list list-border">
                                 <li><a>@setting.Phone</li>
                                 <li><a>@setting.Email</a></li>
@@ -174,7 +181,7 @@
             <div class="container-fluid bg-theme-colored p-20">
                 <div class="row text-center">
                     <div class="col-md-12">
-                        <p class="text-white font-11 m-0">Copyright &copy;2015 ThemeMascot. All Rights Reserved</p>
+                        <p class="text-white font-11 m-0">Copyright &copy;2019. All Rights Reserved</p>
                     </div>
                 </div>
             </div>
@@ -185,6 +192,109 @@
     <!-- Footer Scripts -->
     <!-- JS | Custom script for all pages -->
     <script src="~/Public/js/custom.js"></script>
+    <script src="~/Public/js/script.js"></script>
+
+
+    <script>
+        $(".load-more-blog a").click(function (ev) {
+            ev.preventDefault();
+
+            var data = { page: Number($(this).parent().data("page")) };
+
+
+
+            // Load With Json
+            var url = "/blog/getblogpartjs?page=" + data.page;
+
+            var currentUrl = new URL(window.location.href);
+
+            if (currentUrl.searchParams.get("category") !== null) {
+                url += "&categoryid=" + currentUrl.searchParams.get("category");
+            }
+
+            $.getJSON(url, function (response) {
+
+                $.each(response.data, function (key, value) {
+                    $('.append-area').append(addBlog(value));
+                    //$(".load-more-blog").before(addBlog(value));
+                });
+
+                if (!response.NextPage) {
+                    $(".load-more-blog").remove();
+                } else {
+                    $(".load-more-blog").data("page", data.page + 1);
+                }
+            });
+
+        });
+
+        function addBlog(blog) {
+
+            var html = `<div class="col-sm-12 col-md-6 col-lg-6">
+                            <article class="post style1 clearfix maxwidth500">
+                                <div class="col-md-12 p-0">
+                                    <div class="entry-header">
+                                        <div class="post-thumb">
+                                            <img src="${blog.Photo}" alt="${blog.Title}" class="img-responsive img-fullwidth">
+                                        </div>
+                                        <div class="entry-date entry-date-absolute">
+                                            ${blog.DateDay} <span>${blog.DateMounth}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 p-0">
+                                    <div class="entry-content pl-50 p-20 pt-30 pr-20">
+                                        <h5 class="entry-title pt-0"><a href="${blog.Url} ">${blog.Title}</a></h5>
+                                        <p> ${blog.MinAbout}</p>
+                                        <div class="entry-meta pull-left flip mt-10">
+                                            <input type="hidden" class="BlogID" value="${blog.Id}" />
+                                            <ul class="list-inline">
+                                            <li>
+                                                <i class="fa fa-thumbs-o-up mr-5"></i>
+                                                @if ($"blog.Like" != null)
+                                                {
+                                                    @:${blog.Like}
+                                                }
+                                                else
+                                                {
+                                                    @:0
+                                                }
+                                            <li>
+                                                <i class="fa fa-comments-o mr-5"></i>
+                                                @if ($"blog.Comment" != null)
+                                                {
+                                                    @:${blog.Comment}
+                                                }
+                                                else
+                                                {
+                                                    @:0
+                                                }
+                                            </li>
+                                            <li>
+                                                <i class="far fa-eye mr-5"></i>
+                                                @if ($"blog.Readcount" != null)
+                                                {
+                                                    @:${blog.Readcount}
+                                                }
+                                                else
+                                                {
+                                                    @:0
+                                                }
+                                            </li>
+
+                                            </li>
+
+                                             </ul>
+                                        </div>
+                                        <a class="readCount text-theme-colored mt-10 mb-0 pull-right flip" style="background-color:transparent;border-color:transparent" href="${blog.Url}">Ətraflı <i class="fa fa-angle-double-right"></i></a>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>`
+            return html;
+        }
+    </script>
 
 </body>
 </html>

@@ -1,19 +1,22 @@
-﻿    
+﻿@using System.Globalization
 @model IEnumerable<PsychologyCenter.Models.Blog>
-
+@{
+    var culture = CultureInfo.CurrentUICulture = new CultureInfo("az-AZ");
+}
 
 
 @foreach (var blog in Model)
 {
+
     <div class="col-sm-12 col-md-6 col-lg-6">
         <article class="post style1 clearfix maxwidth500">
             <div class="col-md-12 p-0">
                 <div class="entry-header">
                     <div class="post-thumb">
-                        <img src="~/Uploads/@blog.TitlePhoto" alt="/Uploads/@blog.TitlePhoto" class="img-responsive img-fullwidth">
+                        <img src="~/Uploads/@blog.TitlePhoto" alt="@blog.Title" class="img-responsive img-fullwidth">
                     </div>
                     <div class="entry-date entry-date-absolute">
-                        @blog.Date.Day <span>@blog.Date.ToString("MMM")</span>
+                        @blog.Date.Day <span>@blog.Date.ToString("MMMM", culture)</span>
                     </div>
                 </div>
             </div>
@@ -40,7 +43,7 @@
                                 <i class="fa fa-comments-o mr-5"></i>
                                 @if (blog.Comments.FirstOrDefault(w => w.BlogId == blog.Id) != null)
                                 {
-                                    @blog.Comments.Where(w => w.BlogId == blog.Id).Count()
+                                    @blog.Comments.Where(w => w.BlogId == blog.Id && w.IsActive==true).Count()
                                 }
                                 else
                                 {
@@ -48,7 +51,7 @@
                                 }
                             </li>
                             <li>
-                                <i class="fa fa-comments-o mr-5"></i>
+                                <i class="far fa-eye mr-5"></i>
                                 @if (blog.ReadCounts != null)
                                 {
                                     @blog.ReadCounts.Where(r => r.BlogId == blog.Id).Count()
@@ -66,4 +69,8 @@
             </div>
         </article>
     </div>
+
 }
+<div class="append-area">
+</div>
+

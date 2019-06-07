@@ -12,25 +12,27 @@
     <!-- Meta Tags -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta name="description" content="Medinova - Health & Medical HTML Template" />
-    <meta name="keywords" content="building,business,construction,cleaning,transport,workshop" />
+    <meta name="description" content="Dünya Psixologiya Mərkəzi" />
+    <meta name="keywords" content="ushaqlar,saglamlig,psixologiya,ushag psixologu,psixolog" />
     <meta name="author" content="ThemeMascot" />
 
     <!-- Page Title -->
-    <title>Medinova - Health & Medical HTML Template</title>
+    <title>Dünya Psixologiya Mərkəzi</title>
 
     <!-- Favicon and Touch Icons -->
-    <link href="images/favicon.png" rel="shortcut icon" type="image/png">
-    <link href="images/apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
-    <link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
-    <link href="images/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
+    <link href="~/Public/images/favicon.png" rel="shortcut icon" type="image/png">
+    <link href="~/Public/images/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="~/Public/images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
+    <link href="~/Public/images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
+    <link href="~/Public/images/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
 
     <!-- FONTS-->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,700i,900&display=swap" rel="stylesheet">
 
 
     <!-- Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
     <link href="~/Public/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="~/Public/css/jquery-ui.min.css" rel="stylesheet" type="text/css">
     <link href="~/Public/css/animate.css" rel="stylesheet" type="text/css">
@@ -90,7 +92,7 @@
                                 <div class="col-sm-12 col-md-4">
                                     <ul class="breadcrumb white title">
                                         <li><a href="@Url.Action("index","home")" id="color">ANA SƏHİFƏ</a></li>
-                                        <li><a href="@Url.Action("index","blog")">ƏVVƏLKİ SƏHİFƏ</a></li>
+                                        <li><a href="@Url.Action("index","blog")">MƏQALƏLƏR</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -107,7 +109,7 @@
                             <div class="blog-posts single-post">
                                 <article class="post clearfix mb-0">
                                     <div class="entry-header">
-                                        <div class="post-thumb thumb"> <img src="~/Uploads/@Model.Blog.Photo" alt="~/Uploads/@Model.Blog.Photo" class="img-responsive img-fullwidth"> </div>
+                                        <div class="post-thumb thumb"> <img src="/Uploads/@Model.Blog.Photo" alt="~/Uploads/@Model.Blog.Photo" class="img-responsive img-fullwidth"> </div>
                                         <div class="entry-meta meta-absolute text-center pl-15 pr-15">
                                             <div class="display-table">
                                                 <div class="display-table-cell">
@@ -143,7 +145,7 @@
                                                             </span><br> Rəy
                                                         </li>
                                                         <li class="text-white mt-20">
-                                                            <i class="text-white fa fa-comments-o mr-5"></i>
+                                                            <i class="text-white far fa-eye mr-5"></i>
                                                             @if (Model.ReadCounts != null)
                                                             {
                                                                 @Model.ReadCounts.Where(r => r.BlogId == Model.Blog.Id).Count()
@@ -160,7 +162,7 @@
                                         </div>
                                     </div>
                                     <div class="entry-title pt-0">
-                                        <h3>@Model.Blog.Title</a></h3>
+                                        <h3>@Model.Blog.Title</h3>
                                     </div>
                                     <div class="entry-meta">
                                         <ul class="list-inline">
@@ -206,12 +208,12 @@
                                                 <form role="form" id="comment-form">
                                                     <div class="col-sm-6 pt-0 pb-0">
                                                         <div class="form-group">
-                                                            <input type="text" class="form-control"  name="name" id="name" placeholder="Ad və soyad" required>
+                                                            <input type="text" class="form-control" name="name" id="name" placeholder="Ad və soyad" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-10">
                                                         <div class="form-group">
-                                                            <textarea class="form-control"  name="message" id="message" placeholder="Rəyiniz" rows="7" required></textarea>
+                                                            <textarea class="form-control" name="message" id="message" placeholder="Rəyiniz" rows="7" required></textarea>
                                                         </div>
                                                         <div class="form-group">
                                                             <button type="submit" class="commentButton btn btn-dark btn-flat pull-right m-0" data-loading-text="Zəhmət olmasa gözləyin...">Göndər</button>
@@ -230,6 +232,7 @@
                                     <h5 class="widget-title line-bottom">Kateqoriya</h5>
                                     <div class="categories">
                                         <ul class="list list-border angle-double-right">
+                                            <li><a href="@Url.Action("index","blog")">Hamısı</a></li>
                                             @foreach (var cat in Model.Categories)
                                             {
                                                 <li><a href="@Url.Action("index","blog", new {category = cat.Id })">@cat.Name</a></li>
@@ -245,7 +248,7 @@
         </div>
         <!-- end main-content -->
         <!-- Footer -->
-        <footer id="footer" class="footer pb-0" data-bg-img="Public/images/footer-bg.png" data-bg-color="#25272e">
+        <footer id="footer" class="footer pb-0" data-bg-img="~/Public/images/footer-bg.png" data-bg-color="#25272e">
             <div class="container pb-20">
                 <div class="row multi-row-clearfix">
                     <div class="col-sm-6 col-md-4">
@@ -266,9 +269,9 @@
                                 @foreach (var blogs in Model.Blogs.OrderByDescending(b => b.Date).Take(3))
                                 {
                                     <article class="post media-post clearfix pb-0 mb-10">
-                                        <a class="post-thumb" style="max-width:30%" href="#"><img src="~/Uploads/@blogs.TitlePhoto" alt="~/Uploads/@blogs.TitlePhoto"></a>
+                                        <a class="post-thumb" style="max-width:30%" href="@Url.Action("read","blog", new {Slug= blogs.Slug})"><img src="~/Uploads/@blogs.TitlePhoto" alt="@blogs.Title"></a>
                                         <div class="post-right">
-                                            <h5 class="post-title mt-0 mb-5"><a href="#">@blogs.Title</a></h5>
+                                            <h5 class="post-title mt-0 mb-5"><a href="@Url.Action("read","blog", new {Slug= blogs.Slug})">@blogs.Title</a></h5>
                                             <p class="post-date mb-0 font-12">@blogs.Date.ToString("dd/MM/yyyy")</p>
                                         </div>
                                     </article>
@@ -291,7 +294,7 @@
             <div class="container-fluid bg-theme-colored p-20">
                 <div class="row text-center">
                     <div class="col-md-12">
-                        <p class="text-white font-11 m-0">Copyright &copy;2019 Orkhan Hajizada. All Rights Reserved</p>
+                        <p class="text-white font-11 m-0">Copyright &copy;2019. All Rights Reserved</p>
                     </div>
                 </div>
             </div>

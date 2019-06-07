@@ -11,6 +11,7 @@
         text = text.replace(new RegExp('[ÓÒÔÕ]', 'gi'), 'o');
         text = text.replace(new RegExp('[ÚÙÛÜ]', 'gi'), 'u');
         text = text.replace(new RegExp('[Ç]', 'gi'), 'c');
+        text = text.replace(new RegExp('[Ş]', 'gi'), 's');
         text = text.replace(new RegExp('[Ə]', 'gi'), 'e');
         text = text.replace(new RegExp('[I]', 'gi'), 'i');
         text = text.replace(new RegExp('[ı]', 'gi'), 'i');

@@ -30,7 +30,7 @@ namespace PsychologyCenter.Controllers
 
             model.Specialists = _context.Specialists.OrderBy(s => s.Id).ToList();
 
-            model.Blogs = _context.Blogs.OrderByDescending(b => b.Date).ToList();
+            model.Blogs = _context.Blogs.OrderByDescending(b => b.Date).Take(4).ToList();
 
             model.Galeries = _context.Galeries.Include("GaleryCategory").OrderByDescending(g => g.Id).ToList();
 
@@ -131,7 +131,6 @@ namespace PsychologyCenter.Controllers
         }
 
 
-
         public JsonResult Like(int id)
         {
             Blog blog = _context.Blogs.FirstOrDefault(f => f.Id == id);
@@ -153,6 +152,7 @@ namespace PsychologyCenter.Controllers
             }
             return Json(new { Status = "404" }, JsonRequestBehavior.AllowGet);
         }
+
 
         public JsonResult CommentBlog(string name, string message, int blogId)
         {
