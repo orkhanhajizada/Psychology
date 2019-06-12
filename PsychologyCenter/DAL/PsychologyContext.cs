@@ -35,6 +35,7 @@ namespace PsychologyCenter.DAL
         public DbSet<Like> Likes { get; set; }
         public DbSet<Slider> Sliders { get; set; }
         public DbSet<ReadCount> ReadCounts { get; set; }
+        public DbSet<Meta> Metas { get; set; }
         #endregion
 
         #region AdminPanel

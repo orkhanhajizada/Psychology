@@ -48,18 +48,9 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.MinAbout, "Qısa məlumat",htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.TextAreaFor(model => model.MinAbout, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.MinAbout, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.MinAbout, "", new { @class = "text-danger" })
-                    <script>
-                        ClassicEditor
-                            .create(document.querySelector('#MinAbout'))
-                            .then(editor => {
-                                console.log(editor);
-                            })
-                            .catch(error => {
-                                console.error(error);
-                            });
-                    </script>
+                    
                 </div>
             </div>
 

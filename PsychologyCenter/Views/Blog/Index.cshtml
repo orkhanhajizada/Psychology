@@ -15,11 +15,19 @@
 <head>
 
     <!-- Meta Tags -->
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta name="description" content="Dünya Psixologiya Mərkəzi" />
-    <meta name="keywords" content="ushaqlar,saglamlig,psixologiya,ushag psixologu,psixolog" />
-    <meta name="author" content="ThemeMascot" />
+    @*<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="description" content="Dünya Psixologiya Mərkəzi" />
+        <meta name="keywords" content="ushaqlar,saglamlig,psixologiya,ushag psixologu,psixolog" />
+        <meta name="author" content="ThemeMascot" />*@
+
+
+    <meta property="og:url" content="http://dunyapm.az/blog" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Dünya Psixologiya Mərkəzi" />
+    <meta property="og:description" content="Məqalələr" />
+    <meta property="og:image" content="http://dunyapm.az/Public/images/logo3.png" />
+
 
     <!-- Page Title -->
     <title>Dünya Psixologiya Mərkəzi</title>
@@ -30,6 +38,8 @@
     <link href="~/Public/images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
     <link href="~/Public/images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
     <link href="~/Public/images/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
+
+    <link href="~/Public/images/logo3.png" rel="">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -79,7 +89,7 @@
         <!-- Start main-content -->
         <div class="main-content">
             <!-- Section: inner-header -->
-            <section class="inner-header divider layer-overlay overlay-deep" data-bg-img="http://placehold.it/1920x1280">
+            <section class="inner-header divider layer-overlay overlay-deep" data-bg-img="Public/images/bg5.jpg">
                 <div class="container pt-90 pb-50">
                     <!-- Section Content -->
                     <div class="section-content">
@@ -170,9 +180,9 @@
                         <div class="widget dark">
                             <h5 class="widget-title line-bottom">Əlaqə</h5>
                             <ul class="list list-border">
-                                <li><a>@setting.Phone</li>
-                                <li><a>@setting.Email</a></li>
-                                <li><a href="#" class="lineheight-20">@setting.Adress</a></li>
+                                <li>@setting.Phone</li>
+                                <li>@setting.Email</li>
+                                <li class="lineheight-20">@setting.Adress</li>
                             </ul>
                         </div>
                     </div>

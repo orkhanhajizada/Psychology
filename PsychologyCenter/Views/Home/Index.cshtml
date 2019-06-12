@@ -13,11 +13,16 @@
 <html dir="ltr" lang="en">
 <head>
     <!-- Meta Tags -->
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    @*<meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta name="description" content="Dünya Psixologiya Mərkəzi" />
-    <meta name="keywords" content="ushaqlar,saglamlig,psixologiya,ushag psixologu,psixolog" />
-    <meta name="author" content="ThemeMascot" />
+    <meta name="keywords" content="ushaqlar,saglamlig,psixologiya,ushag psixologu,psixolog" />*@
+
+    <meta property="og:url" content="http://dunyapm.az" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Dünya Psixologiya Mərkəzi" />
+    <meta property="og:description" content="Ana səhifə" />
+    <meta property="og:image" content="http://dunyapm.az/Public/images/logo3.png" />
 
     <!-- Page Title -->
     <title>Dünya Psixologiya Mərkəzi</title>
@@ -29,7 +34,7 @@
     <link href="~/Public/images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
     <link href="~/Public/images/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
 
-
+    <link href="~/Public/images/logo3.png" rel="">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -814,7 +819,7 @@
                                                 <div class="entry-content pl-50 p-20 pt-30 pr-20">
 
                                                     <h5 class="entry-title pt-0"><a href="#">@news.Title</a></h5>
-                                                    <p>@Html.Raw(news.MinAbout)</p>
+                                                    <p>@news.MinAbout</p>
                                                     <div class="entry-meta pull-left flip mt-10">
 
                                                         <ul class="list-inline">
@@ -1119,9 +1124,9 @@
                     <div class="widget dark">
                         <h5 class="widget-title line-bottom">Əlaqə</h5>
                         <ul class="list list-border">
-                            <li><a>@setting.Phone</li>
-                            <li><a>@setting.Email</a></li>
-                            <li><a href="#" class="lineheight-20">@setting.Adress</a></li>
+                            <li>@setting.Phone</li>
+                            <li>@setting.Email</li>
+                            <li class="lineheight-20">@setting.Adress</li>
                         </ul>
                     </div>
                 </div>

@@ -73,11 +73,34 @@ namespace PsychologyCenter.Controllers
                 return HttpNotFound();
             }
 
-           
+
+            Meta meta = new Meta()
+            {
+                Title = blog.Title,
+                Desc = blog.MinAbout,
+                Type = "article",
+                Image = this.GetBaseUrl() + Url.Content("Uploads/" + blog.TitlePhoto)
+            };
+
+            ViewBag.Meta = meta;
+
 
             return View(model);
         }
 
+
+        private string GetBaseUrl()
+        {
+            var request = Request;
+            var appUrl = HttpRuntime.AppDomainAppVirtualPath;
+
+            if (appUrl != "/")
+                appUrl = "/" + appUrl;
+
+            var baseUrl = string.Format("{0}://{1}{2}", request.Url.Scheme, request.Url.Authority, appUrl);
+
+            return baseUrl;
+        }
 
         public string GetIPAddress()
         {

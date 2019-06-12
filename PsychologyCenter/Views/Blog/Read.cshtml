@@ -10,11 +10,23 @@
 <head>
 
     <!-- Meta Tags -->
-    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <meta name="description" content="Dünya Psixologiya Mərkəzi" />
-    <meta name="keywords" content="ushaqlar,saglamlig,psixologiya,ushag psixologu,psixolog" />
-    <meta name="author" content="ThemeMascot" />
+    @*<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="description" content="Dünya Psixologiya Mərkəzi" />
+        <meta name="keywords" content="ushaqlar,saglamlig,psixologiya,ushag psixologu,psixolog" />
+        <meta name="author" content="ThemeMascot" />*@
+
+    @if (ViewBag.Meta != null)
+    {
+        PsychologyCenter.Models.Meta meta = ViewBag.Meta as PsychologyCenter.Models.Meta;
+
+        <meta property="og:type" content="@meta.Type" />
+        <meta property="og:url" content="@Request.Url.ToString()" />
+        <meta property="og:title" content="@meta.Title" />
+        <meta property="og:description" content="@meta.Desc" />
+        <meta property="og:site_name" content="dunyapm.az" />
+        <meta property="og:image" content="@meta.Image" sizes="200x200" />
+    }
 
     <!-- Page Title -->
     <title>Dünya Psixologiya Mərkəzi</title>
@@ -67,19 +79,21 @@
     <![endif]-->
 </head>
 <body class="">
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/az_AZ/sdk.js#xfbml=1&version=v3.3&appId=431406004307875&autoLogAppEvents=1"></script>
     <div id="wrapper">
         <!-- preloader -->
         <div id="preloader">
             <div id="spinner">
                 <img src="~/Public/images/Preloader_3.gif" alt="">
             </div>
-            <div id="disable-preloader" class="btn btn-default btn-sm">Disable Preloader</div>
+            @*<div id="disable-preloader" class="btn btn-default btn-sm">Disable Preloader</div>*@
         </div>
 
         <!-- Start main-content -->
         <div class="main-content">
             <!-- Section: inner-header -->
-            <section class="inner-header divider layer-overlay overlay-deep" data-bg-img="http://placehold.it/1920x1280">
+            <section class="inner-header divider layer-overlay overlay-deep" data-bg-img="Public/images/bg5.jpg">
                 <div class="container pt-90 pb-50">
                     <!-- Section Content -->
                     <div class="section-content">
@@ -172,11 +186,14 @@
                                     </div>
                                     <div class="entry-content mt-10">
                                         <p class="mb-15">@Html.Raw(Model.Blog.Text)</p>
-                                        <div class="mt-30 mb-0">
-                                            <h5 class="pull-left mt-10 mr-20 text-theme-colored">Paylaş:</h5>
-                                            <ul class="social-icons icon-circled m-0">
-                                                <li><a href="#" data-bg-color="#3A5795"><i class="fa fa-facebook text-white"></i></a></li>
-                                            </ul>
+                                        @*<div class="mt-30 mb-0">
+                                                <h5 class="pull-left mt-10 mr-20 text-theme-colored">Paylaş:</h5>
+                                                <ul class="social-icons icon-circled m-0">
+                                                    <li><a href="#" data-bg-color="#3A5795"><i class="fa fa-facebook text-white"></i></a></li>
+                                                </ul>
+                                            </div>*@
+                                        <div class="fb-share-button mt-30" data-href="@Request.Url.ToString()" data-layout="button_count" data-size="large">
+                                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=@Request.Url.ToString()" class="fb-xfbml-parse-ignore">Paylaş</a>
                                         </div>
                                     </div>
                                 </article>
@@ -248,7 +265,7 @@
         </div>
         <!-- end main-content -->
         <!-- Footer -->
-        <footer id="footer" class="footer pb-0" data-bg-img="~/Public/images/footer-bg.png" data-bg-color="#25272e">
+        <footer id="footer" class="footer pb-0" data-bg-img="Public/images/footer-bg.png" data-bg-color="#25272e">
             <div class="container pb-20">
                 <div class="row multi-row-clearfix">
                     <div class="col-sm-6 col-md-4">
@@ -283,9 +300,9 @@
                         <div class="widget dark">
                             <h5 class="widget-title line-bottom">Əlaqə</h5>
                             <ul class="list list-border">
-                                <li><a>@setting.Phone</li>
-                                <li><a>@setting.Email</a></li>
-                                <li><a href="#" class="lineheight-20">@setting.Adress</a></li>
+                                <li>@setting.Phone</li>
+                                <li>@setting.Email</li>
+                                <li class="lineheight-20">@setting.Adress</li>
                             </ul>
                         </div>
                     </div>

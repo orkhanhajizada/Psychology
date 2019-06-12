@@ -233,6 +233,10 @@
     <Compile Include="Migrations\201906050712178_SomeStringLengthChanges.Designer.cs">
       <DependentUpon>201906050712178_SomeStringLengthChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906121115197_AddMeta.cs" />
+    <Compile Include="Migrations\201906121115197_AddMeta.Designer.cs">
+      <DependentUpon>201906121115197_AddMeta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\About.cs" />
     <Compile Include="Models\Blog.cs" />
@@ -243,6 +247,7 @@
     <Compile Include="Models\Galery.cs" />
     <Compile Include="Models\GaleryCategory.cs" />
     <Compile Include="Models\Like.cs" />
+    <Compile Include="Models\Meta.cs" />
     <Compile Include="Models\OpeningHour.cs" />
     <Compile Include="Models\Phrase.cs" />
     <Compile Include="Models\ReadCount.cs" />
@@ -2346,6 +2351,11 @@
     <Content Include="Public\images\logo-wide-white%402x.png" />
     <Content Include="Public\images\logo-wide-white.png" />
     <Content Include="Public\images\logo-wide.png" />
+    <Content Include="Public\images\logo1.png" />
+    <Content Include="Public\images\logo2.png" />
+    <Content Include="Public\images\logo3.png" />
+    <Content Include="Public\images\logo4.png" />
+    <Content Include="Public\images\logo5.png" />
     <Content Include="Public\images\map-marker.png" />
     <Content Include="Public\images\map-marker2.png" />
     <Content Include="Public\images\map-marker3.png" />
@@ -2828,6 +2838,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906050712178_SomeStringLengthChanges.resx">
       <DependentUpon>201906050712178_SomeStringLengthChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906121115197_AddMeta.resx">
+      <DependentUpon>201906121115197_AddMeta.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
