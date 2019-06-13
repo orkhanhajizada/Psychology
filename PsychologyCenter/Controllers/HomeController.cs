@@ -143,7 +143,7 @@ namespace PsychologyCenter.Controllers
                     Like likePost = new Like();
                     likePost.BlogId = id;
                     likePost.Ip = userIP;
-                    likePost.Date = DateTime.Now;
+                    likePost.Date = DateTime.UtcNow.AddHours(4);
                     _context.Likes.Add(likePost);
                     _context.SaveChanges();
                     return Json(new { Status = "200" }, JsonRequestBehavior.AllowGet);
@@ -163,7 +163,7 @@ namespace PsychologyCenter.Controllers
                 Comment comment = new Comment();
                 comment.Name = name;
                 comment.BlogId = blog.Id;
-                comment.Date = DateTime.Now;
+                comment.Date = DateTime.UtcNow.AddHours(4);
                 comment.Content = message;
                 comment.IsActive = false;
                 _context.Comments.Add(comment);

@@ -7,21 +7,12 @@
     var culture = CultureInfo.CurrentUICulture = new CultureInfo("az-AZ");
 }
 
-
-
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 <head>
 
     <!-- Meta Tags -->
-    @*<meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-        <meta name="description" content="Dünya Psixologiya Mərkəzi" />
-        <meta name="keywords" content="ushaqlar,saglamlig,psixologiya,ushag psixologu,psixolog" />
-        <meta name="author" content="ThemeMascot" />*@
-
-
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <meta property="og:url" content="http://dunyapm.az/blog" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Dünya Psixologiya Mərkəzi" />
@@ -33,11 +24,8 @@
     <title>Dünya Psixologiya Mərkəzi</title>
 
     <!-- Favicon and Touch Icons -->
-    <link href="~/Public/images/favicon.png" rel="shortcut icon" type="image/png">
-    <link href="~/Public/images/apple-touch-icon.png" rel="apple-touch-icon">
-    <link href="~/Public/images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72">
-    <link href="~/Public/images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114">
-    <link href="~/Public/images/apple-touch-icon-144x144.png" rel="apple-touch-icon" sizes="144x144">
+    <link href="~/Public/images/logo32.png" rel="shortcut icon" type="image/png">
+
 
     <link href="~/Public/images/logo3.png" rel="">
 
@@ -84,7 +72,7 @@
             <div id="spinner">
                 <img src="~/Public/images/Preloader_3.gif" alt="">
             </div>
-            <div id="disable-preloader" class="btn btn-default btn-sm">Disable Preloader</div>
+            @*<div id="disable-preloader" class="btn btn-default btn-sm">Disable Preloader</div>*@
         </div>
         <!-- Start main-content -->
         <div class="main-content">
@@ -116,11 +104,15 @@
                             @{
                                 Html.RenderPartial("~/Views/Blog/PartialBlog.cshtml", Model.Blogs);
                             }
+                            <div class="col-md-12 next-page load-more-blog mt-30 " style="text-align:center" data-page="2">
+                                <a class="btn btn-lg btn-dark btn-theme-colored" href="#">Daha çox</a>
+                            </div>
                         </div>
+                        
                         <div class="col-sm-12 col-md-3">
                             <div class="sidebar sidebar-right mt-sm-30">
                                 <div class="widget">
-                                    <h5 class="widget-title line-bottom">Kategoriya</h5>
+                                    <h5 class="widget-title line-bottom">KATEQORİYALAR</h5>
                                     <div class="categories">
                                         <ul class="list list-border angle-double-right">
                                             <li><a href="@Url.Action("index","blog")">Hamısı</a></li>
@@ -135,10 +127,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-9 next-page load-more-blog mt-30" style="text-align:center" data-page="2">
-                        <a class="btn btn-lg btn-dark btn-theme-colored" href="#">Daha çox</a>
-                    </div>
-
+                   
                 </div>
             </section>
         </div>
@@ -150,7 +139,7 @@
                 <div class="row multi-row-clearfix">
                     <div class="col-sm-6 col-md-4">
                         <div class="widget dark">
-                            <img alt="" src="~/Public/images/logo-wide-white.png">
+                            <img alt="" src="~/Public/images/logomainwh.png">
                             <p class="font-12 mt-20 mb-10">Medinova is a library of Crowdfunding and Medinova templates with predefined elements which helps you to build your own site. Lorem ipsum dolor sit amet consectetur.</p>
                             <ul class="social-icons icon-dark mt-20">
                                 <li><a href="@setting.Facebook" data-bg-color="#3B5998"><i class="fa fa-facebook"></i></a></li>

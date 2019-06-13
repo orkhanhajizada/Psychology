@@ -1979,6 +1979,8 @@
     <Content Include="Public\fonts\Pe-icon-7-stroke.svg" />
     <Content Include="Public\fonts\Stroke-Gap-Icons.svg" />
     <Content Include="Public\images\1.gif" />
+    <Content Include="Public\images\1920x1280.png" />
+    <Content Include="Public\images\apple-touch-icon-114x114 - Copy.png" />
     <Content Include="Public\images\apple-touch-icon-114x114.png" />
     <Content Include="Public\images\apple-touch-icon-144x144.png" />
     <Content Include="Public\images\apple-touch-icon-72x72.png" />
@@ -2351,11 +2353,10 @@
     <Content Include="Public\images\logo-wide-white%402x.png" />
     <Content Include="Public\images\logo-wide-white.png" />
     <Content Include="Public\images\logo-wide.png" />
-    <Content Include="Public\images\logo1.png" />
-    <Content Include="Public\images\logo2.png" />
-    <Content Include="Public\images\logo3.png" />
-    <Content Include="Public\images\logo4.png" />
-    <Content Include="Public\images\logo5.png" />
+    <Content Include="Public\images\logo32.png" />
+    <Content Include="Public\images\logoadmin1.png" />
+    <Content Include="Public\images\logomain1.png" />
+    <Content Include="Public\images\logomainwh.png" />
     <Content Include="Public\images\map-marker.png" />
     <Content Include="Public\images\map-marker2.png" />
     <Content Include="Public\images\map-marker3.png" />

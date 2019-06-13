@@ -1717,9 +1717,9 @@ section > .container-fluid {
     text-align: center;
   }
 }
-.menuzord-brand img {
+/*.menuzord-brand img {
   max-height: 38px;
-}
+}*/
 @media only screen and (max-width: 767px) {
   .menuzord-brand img {
     max-height: 30px;

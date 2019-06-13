@@ -40,7 +40,7 @@ namespace PsychologyCenter.Controllers
                     ReadCount readCount = new ReadCount();
                     readCount.BlogId = blog.Id;
                     readCount.Ip = userIP;
-                    readCount.Date = DateTime.Now;
+                    readCount.Date = DateTime.UtcNow.AddHours(4);
                     _context.ReadCounts.Add(readCount);
                     _context.SaveChanges();
                 }
